@@ -20,15 +20,14 @@ public class EllipticalShapes extends Shape {
 
     @Override
     public void resizeShape(double... newInfo) {
-        center[0] = newInfo[0];
-        center[1] = newInfo[1];
-        xRadius = newInfo[2];
-        yRadius = newInfo[3];
+        xRadius = newInfo[0];
+        yRadius = newInfo[1];
     }
 
     @Override
-    public void moveShape() {
-        //TODO
+    public void moveShape(double... newCoordinates) {
+        center[0] = newCoordinates[0];
+        center[1] = newCoordinates[1];
     }
 
 }

@@ -11,7 +11,7 @@ public abstract class Shape implements Cloneable{
 
     abstract public void drawShape();
     abstract public void resizeShape(double... newInfo);
-    abstract public void moveShape();
+    abstract public void moveShape(double... newCoordinates);
 
     public Shape copy(){
          Shape newShape = null;

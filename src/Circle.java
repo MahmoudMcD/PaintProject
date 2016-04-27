@@ -17,6 +17,6 @@ public class Circle extends EllipticalShapes {
     @Override
     public void resizeShape(double... newInfo)
     {
-        super.resizeShape(newInfo[0], newInfo[1], newInfo[2], newInfo[2]);
+        super.resizeShape(newInfo[0], newInfo[0]);
     }
 }

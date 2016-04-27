@@ -30,8 +30,15 @@ public class Polygons extends Shape{
     }
 
     @Override
-    public void moveShape() {
-        //TODO
+    public void moveShape(double... newInfo) {
+        if (newInfo.length != noOfSides*2)
+            throw new RuntimeException("Wrong Coordinates number "); //TODO
+
+        for(int i = 0; i < noOfSides; i++)
+        {
+            xCoord[i] = newInfo[i];
+            yCoord[i] = newInfo[i+1];
+        }
     }
 
 
