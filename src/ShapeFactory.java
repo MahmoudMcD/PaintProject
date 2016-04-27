@@ -35,13 +35,13 @@ public class ShapeFactory implements SimpleShapeFactory {
     @Override
     public Shape makeShape(String shapeType, double[] xCoordinates, double[] yCoordinates, double... otherInfo)
     {
-        /* TODO
         switch (shapeType)
         {
             case "polygon":
-                return new Polygons();
+                return makePolygon(xCoordinates, yCoordinates, otherInfo);
+            case "triangle":
+                return makeTriangle(xCoordinates, yCoordinates, otherInfo);
         }
-        */
         return null;
     }
 
@@ -81,5 +81,25 @@ public class ShapeFactory implements SimpleShapeFactory {
         if (rectangleInfo.length == 3)
             newRectangle.setRotationAngle(rectangleInfo[2]);
         return newRectangle;
+    }
+
+    private Polygons makePolygon(double[] xCoordinates, double[] yCoordinates, double... otherInfo)
+    {
+        Polygons newPolygon =  new Polygons(xCoordinates.length);
+        newPolygon.setxCoord(xCoordinates);
+        newPolygon.setyCoord(yCoordinates);
+        if(otherInfo.length == 1)
+            newPolygon.setRotationAngle(otherInfo[0]);
+        return newPolygon;
+    }
+
+    private Triangle makeTriangle(double[] xCoordinates, double[] yCoordinates, double... otherInfo)
+    {
+        Triangle newTriangle = new Triangle();
+        newTriangle.setxCoord(xCoordinates);
+        newTriangle.setyCoord(yCoordinates);
+        if  (otherInfo.length == 1)
+            newTriangle.setRotationAngle(otherInfo[0]);
+        return newTriangle;
     }
 }
