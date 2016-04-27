@@ -29,8 +29,4 @@ public class Line extends Shape {
 
     }
 
-    @Override
-    public void copy() {
-
-    }
 }

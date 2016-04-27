@@ -28,9 +28,4 @@ public class EllipticalShapes extends Shape {
         //TODO
     }
 
-    @Override
-    public void copy() {
-        //TODO
-    }
-
 }

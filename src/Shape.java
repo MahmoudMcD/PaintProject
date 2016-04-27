@@ -3,7 +3,7 @@ import javafx.scene.paint.Color;
 /**
  * Created by mahmo on 4/26/2016.
  */
-public abstract class Shape {
+public abstract class Shape implements Cloneable{
 
     private Color fillColor;
     private double rotationAngle;
@@ -12,7 +12,20 @@ public abstract class Shape {
     abstract public void drawShape();
     abstract public void resizeShape();
     abstract public void moveShape();
-    abstract public void copy();
+
+    public Shape copy(){
+         Shape newShape = null;
+         try{
+             newShape = (Shape)super.clone();
+         }
+         catch (CloneNotSupportedException e){
+             e.printStackTrace();
+         }
+         return newShape;
+    }
+    /*
+             عايزين نغير اسامي الكلاسيس عشان سبحان الله javaFX عندها نفس الاسامي ولما نكول حاجة هيكونفليكت بقى بتاعنا ولا FX
+     */
 
     public Color getFillColor() { return fillColor; }
     public double getRotationAngle() {return rotationAngle;}
