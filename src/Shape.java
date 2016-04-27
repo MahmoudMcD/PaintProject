@@ -1,7 +1,7 @@
 import javafx.scene.paint.Color;
 
 /**
- * Created by mahmo on 4/26/2016.
+ * Created by mahmoud on 4/26/2016.
  */
 public abstract class Shape implements Cloneable{
 
