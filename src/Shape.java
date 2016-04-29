@@ -23,9 +23,7 @@ public abstract class Shape implements Cloneable{
          }
          return newShape;
     }
-    /*
-             عايزين نغير اسامي الكلاسيس عشان سبحان الله javaFX عندها نفس الاسامي ولما نكول حاجة هيكونفليكت بقى بتاعنا ولا FX
-     */
+
 
     public Color getFillColor() { return fillColor; }
     public double getRotationAngle() {return rotationAngle;}
