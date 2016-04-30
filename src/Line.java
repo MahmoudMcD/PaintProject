@@ -3,8 +3,8 @@
  */
 public class Line extends Shape {
 
-    double xStart, xEnd;
-    double yStart, yEnd;
+    private double xStart, xEnd;
+    private double yStart, yEnd;
 
     public Line(double xStart, double yStart, double xEnd, double yEnd)
     {
