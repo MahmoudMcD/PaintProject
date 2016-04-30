@@ -1,7 +1,7 @@
 import javafx.scene.paint.Color;
 
 /**
- * Created by mahmo on 4/26/2016.
+ * Created by mahmoud on 4/26/2016.
  */
 public abstract class Shape implements Cloneable{
 
@@ -10,8 +10,8 @@ public abstract class Shape implements Cloneable{
 
 
     abstract public void drawShape();
-    abstract public void resizeShape();
-    abstract public void moveShape();
+    abstract public void resizeShape(double... newInfo);
+    abstract public void moveShape(double... newCoordinates);
 
     public Shape copy(){
          Shape newShape = null;
@@ -23,7 +23,6 @@ public abstract class Shape implements Cloneable{
          }
          return newShape;
     }
-
 
     public Color getFillColor() { return fillColor; }
     public double getRotationAngle() {return rotationAngle;}

@@ -11,6 +11,13 @@ public class Square extends Polygons{
         this.sideLength = length;
     }
 
+
+    @Override
+    public void resizeShape(double... newInfo)
+    {
+        sideLength = newInfo[0];
+    }
+
     public double getSideLength() {
         return sideLength;
     }

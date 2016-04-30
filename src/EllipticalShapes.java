@@ -13,19 +13,22 @@ public class EllipticalShapes extends Shape {
         this.yRadius = yRadius;
     }
 
+
     @Override
     public void drawShape() {
         //TODO
     }
 
     @Override
-    public void resizeShape() {
-        //TODO
+    public void resizeShape(double... newInfo) {
+        xRadius = newInfo[0];
+        yRadius = newInfo[1];
     }
 
     @Override
-    public void moveShape() {
-        //TODO
+    public void moveShape(double... newCoordinates) {
+        center[0] = newCoordinates[0];
+        center[1] = newCoordinates[1];
     }
 
 }

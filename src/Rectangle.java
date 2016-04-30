@@ -10,6 +10,13 @@ public class Rectangle extends Polygons{
         this.height = height;
     }
 
+    @Override
+    public void resizeShape(double... newInfo)
+    {
+        width = newInfo[0];
+        height = newInfo[1];
+    }
+
     public double getWidth() {
         return width;
     }
