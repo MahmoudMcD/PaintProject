@@ -172,7 +172,7 @@ public class DrawApplication {
             }
         }
 
-        switch (shape.getClass().getName()){
+        switch (shape.getClass().getName()) {
 
             case "Circle":
                 ((Circle) temp.getShapeFX()).setCenterX(moreInfo[0]);
@@ -194,12 +194,11 @@ public class DrawApplication {
                 temp.getShape().moveShape(moreInfo);
                 break;
             case "Polygon":
-                if(((Polygon) temp.getShapeFX()).getPoints().toArray().length == 6){
+                if (((Polygon) temp.getShapeFX()).getPoints().toArray().length == 6) {
                     //TODO for Triangle
-                }
-                else{
+                } else {
                     ArrayList<Double> ar = new ArrayList<>();
-                    for(int i=0;i<moreInfo.length;i++){
+                    for (int i = 0; i < moreInfo.length; i++) {
                         ar.add(moreInfo[i]);
                     }
                     ((Polygon) temp.getShapeFX()).getPoints().clear();
@@ -209,12 +208,11 @@ public class DrawApplication {
                 break;
 
             case "Rectangle":
-                if( ((Rectangle) temp.getShapeFX()).getHeight()  == ((Rectangle) temp.getShapeFX()).getWidth() ){
+                if (((Rectangle) temp.getShapeFX()).getHeight() == ((Rectangle) temp.getShapeFX()).getWidth()) {
                     ((Rectangle) temp.getShapeFX()).setWidth(moreInfo[0]);
                     ((Rectangle) temp.getShapeFX()).setHeight(moreInfo[0]);
                     temp.getShape().moveShape(moreInfo);
-                }
-                else{
+                } else {
                     ((Rectangle) temp.getShapeFX()).setWidth(moreInfo[0]);
                     ((Rectangle) temp.getShapeFX()).setHeight(moreInfo[1]);
                     temp.getShape().moveShape(moreInfo);
