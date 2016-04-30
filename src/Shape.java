@@ -10,6 +10,15 @@ public abstract class Shape implements Cloneable{
 
 
     abstract public void drawShape();
+
+    /* info for resize is sent in the order valid for each shape
+     * Circle: resizeShape(radius)
+     * Ellipse: resizeShape(xRadius, yRadius)
+     * Line: resizeShape(newLength)
+     * Triangle: resizeShape(firstSideLength, secondSideLength, thirdSideLength)
+     * Rectangle: resizeShape(width, height)
+     * Square: resizeShape(sideLength)
+     */
     abstract public void resizeShape(double... newInfo);
     abstract public void moveShape(double... newCoordinates);
 
