@@ -1,32 +1,69 @@
-import javafx.scene.Node;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.*;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
+import javafx.stage.Stage;
 
-/**
- * Created by mahmo on 4/29/2016.
- */
-
-public class Test {
+public class Test extends Application
+{
+    Group drowRoot;
 
     public static void main(String[] args) {
-        testClass(new Circle(10));
-        testThisClass(new javafx.scene.shape.Circle(10));
-
+        launch(args);
     }
 
-    public static void testClass(Node javaFXClass)
+    public class DragListener implements EventHandler<MouseEvent>
     {
-        ((Circle) javaFXClass).setCenterX(10);
-        System.out.println(javaFXClass instanceof javafx.scene.shape.Circle);
+        Circle shape;
+
+        public DragListener(Circle shape)
+        {
+            this.shape = shape;
+        }
+
+        public void handle(MouseEvent e)
+        {
+            shape.setCenterX(e.getX());
+            shape.setCenterY(e.getY());
+            e.consume();
+        }
     }
 
-    public static void testThisClass(Shape shape)
+    public void start(Stage primaryStage)
     {
-        System.out.println("This is our shape");
-    }
+        Pane root = new Pane();
 
-    public static void testThisClass(javafx.scene.shape.Circle shape)
-    {
-        System.out.println("This is JavaFX Class");
+        VBox layout = new VBox();
+        MenuBar menuBar = new MenuBar();
+        Menu file = new Menu("File");
+        MenuItem save = new MenuItem("Save");
+        file.getItems().add(save);
+        menuBar.getMenus().add(file);
+
+        Rectangle clip = new Rectangle(1000, 700);
+        clip.setLayoutX(0);
+        clip.setLayoutY(0);
+        clip.setFill(Paint.valueOf("Grey"));
+
+        layout.getChildren().addAll(menuBar, root);
+        root.setClip(clip);
+
+        Circle shape = new Circle(10, 10, 10);
+        shape.setOnMouseDragged(new DragListener(shape));
+        root.getChildren().add(shape);
+        primaryStage.setScene(new Scene(layout, 1000, 700));
+        primaryStage.show();
     }
 }
