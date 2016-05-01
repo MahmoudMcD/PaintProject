@@ -1,12 +1,12 @@
 /**
  * Created by mahmoud on 4/26/2016.
  */
-public class Line extends Shape {
+public class iLine extends iShape {
 
     private double xStart, xEnd;
     private double yStart, yEnd;
 
-    public Line(double xStart, double yStart, double xEnd, double yEnd)
+    public iLine(double xStart, double yStart, double xEnd, double yEnd)
     {
         this.xStart = xStart;
         this.yStart = yStart;

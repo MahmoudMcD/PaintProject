@@ -1,9 +1,9 @@
 /**
  * Created by mahmoud on 4/26/2016.
  */
-public class Circle extends EllipticalShapes {
+public class iCircle extends EllipticalShapes {
 
-    public Circle(Double[] center, double radius)
+    public iCircle(Double[] center, double radius)
     {
         super(center, radius, radius);
     }

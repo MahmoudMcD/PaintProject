@@ -3,10 +3,10 @@
 /**
  * Created by Tarek Alqaddy on 4/27/2016.
  */
-public class Square extends Polygons{
+public class iSquare extends iPolygons {
     private double sideLength;
 
-    public Square(double length){
+    public iSquare(double length){
         super(4);
         this.sideLength = length;
     }

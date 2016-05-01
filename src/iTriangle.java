@@ -1,10 +1,10 @@
 /**
  * Created by Tarek Alqaddy on 4/27/2016.
  */
-public class Triangle extends Polygons{
+public class iTriangle extends iPolygons {
 
     double[] sideLength;
-    public Triangle(){
+    public iTriangle(){
         super(3);
     }
 

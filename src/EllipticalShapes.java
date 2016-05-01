@@ -1,7 +1,7 @@
 /**
  * Created by mahmoud on 4/26/2016.
  */
-public class EllipticalShapes extends Shape {
+public class EllipticalShapes extends iShape {
     private Double[] center;
     private double xRadius;
     private double yRadius;

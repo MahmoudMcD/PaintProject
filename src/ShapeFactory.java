@@ -3,7 +3,7 @@
  */
 public class ShapeFactory implements SimpleShapeFactory {
 
-    public Shape makeShape(String shapeType, double... shapeInfo)
+    public iShape makeShape(String shapeType, double... shapeInfo)
     {
         switch (shapeType)
         {
@@ -33,7 +33,7 @@ public class ShapeFactory implements SimpleShapeFactory {
     }
 
     @Override
-    public Shape makeShape(String shapeType, double[] xCoordinates, double[] yCoordinates, double... otherInfo)
+    public iShape makeShape(String shapeType, double[] xCoordinates, double[] yCoordinates, double... otherInfo)
     {
         switch (shapeType)
         {
@@ -45,47 +45,47 @@ public class ShapeFactory implements SimpleShapeFactory {
         return null;
     }
 
-    private Circle makeCircle(double centerX, double centerY, double radius)
+    private iCircle makeCircle(double centerX, double centerY, double radius)
     {
-        return new Circle(new Double[]{centerX, centerY}, radius);
+        return new iCircle(new Double[]{centerX, centerY}, radius);
     }
 
-    private Ellipse makeEllipse(double... ellipseInfo)
+    private iEllipse makeEllipse(double... ellipseInfo)
     {
-        Ellipse newEllipse = new Ellipse(new Double[]{ellipseInfo[0], ellipseInfo[1]}, ellipseInfo[2],
+        iEllipse newEllipse = new iEllipse(new Double[]{ellipseInfo[0], ellipseInfo[1]}, ellipseInfo[2],
                 ellipseInfo[3]);
         if (ellipseInfo.length == 5)
             newEllipse.setRotationAngle(ellipseInfo[4]);
         return newEllipse;
     }
 
-    private Line makeLine(double... lineInfo)
+    private iLine makeLine(double... lineInfo)
     {
-        Line newLine = new Line(lineInfo[0], lineInfo[1], lineInfo[2], lineInfo[3]);
+        iLine newLine = new iLine(lineInfo[0], lineInfo[1], lineInfo[2], lineInfo[3]);
         if (lineInfo.length == 5)
             newLine.setRotationAngle(lineInfo[4]);
         return newLine;
     }
 
-    private Square makeSquare(double... squareInfo)
+    private iSquare makeSquare(double... squareInfo)
     {
-        Square newSquare = new Square(squareInfo[0]);
+        iSquare newSquare = new iSquare(squareInfo[0]);
         if (squareInfo.length == 2)
             newSquare.setRotationAngle(squareInfo[1]);
         return newSquare;
     }
 
-    private Rectangle makeRectangle(double... rectangleInfo)
+    private iRectangle makeRectangle(double... rectangleInfo)
     {
-        Rectangle newRectangle = new Rectangle(rectangleInfo[0], rectangleInfo[1]);
+        iRectangle newRectangle = new iRectangle(rectangleInfo[0], rectangleInfo[1]);
         if (rectangleInfo.length == 3)
             newRectangle.setRotationAngle(rectangleInfo[2]);
         return newRectangle;
     }
 
-    private Polygons makePolygon(double[] xCoordinates, double[] yCoordinates, double... otherInfo)
+    private iPolygons makePolygon(double[] xCoordinates, double[] yCoordinates, double... otherInfo)
     {
-        Polygons newPolygon =  new Polygons(xCoordinates.length);
+        iPolygons newPolygon =  new iPolygons(xCoordinates.length);
         newPolygon.setxCoord(xCoordinates);
         newPolygon.setyCoord(yCoordinates);
         if(otherInfo.length == 1)
@@ -93,9 +93,9 @@ public class ShapeFactory implements SimpleShapeFactory {
         return newPolygon;
     }
 
-    private Triangle makeTriangle(double[] xCoordinates, double[] yCoordinates, double... otherInfo)
+    private iTriangle makeTriangle(double[] xCoordinates, double[] yCoordinates, double... otherInfo)
     {
-        Triangle newTriangle = new Triangle();
+        iTriangle newTriangle = new iTriangle();
         newTriangle.setxCoord(xCoordinates);
         newTriangle.setyCoord(yCoordinates);
         if  (otherInfo.length == 1)

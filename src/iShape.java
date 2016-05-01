@@ -3,7 +3,7 @@ import javafx.scene.paint.Color;
 /**
  * Created by mahmoud on 4/26/2016.
  */
-public abstract class Shape implements Cloneable{
+public abstract class iShape implements Cloneable{
 
     private Color fillColor;
     private double rotationAngle;
@@ -12,20 +12,20 @@ public abstract class Shape implements Cloneable{
     abstract public void drawShape();
 
     /* info for resize is sent in the order valid for each shape
-     * Circle: resizeShape(radius)
-     * Ellipse: resizeShape(xRadius, yRadius)
-     * Line: resizeShape(newLength)
-     * Triangle: resizeShape(firstSideLength, secondSideLength, thirdSideLength)
-     * Rectangle: resizeShape(width, height)
-     * Square: resizeShape(sideLength)
+     * iCircle: resizeShape(radius)
+     * iEllipse: resizeShape(xRadius, yRadius)
+     * iLine: resizeShape(newLength)
+     * iTriangle: resizeShape(firstSideLength, secondSideLength, thirdSideLength)
+     * iRectangle: resizeShape(width, height)
+     * iSquare: resizeShape(sideLength)
      */
     abstract public void resizeShape(double... newInfo);
     abstract public void moveShape(double... newCoordinates);
 
-    public Shape copy(){
-         Shape newShape = null;
+    public iShape copy(){
+         iShape newShape = null;
          try{
-             newShape = (Shape)super.clone();
+             newShape = (iShape)super.clone();
          }
          catch (CloneNotSupportedException e){
              e.printStackTrace();

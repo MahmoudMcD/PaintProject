@@ -1,11 +1,11 @@
 /**
  * Created by Tarek Alqaddy on 4/27/2016.
  */
-public class Polygons extends Shape{
+public class iPolygons extends iShape {
     private double[] xCoord,yCoord;
     private int noOfSides;
 
-    public Polygons(int sides){
+    public iPolygons(int sides){
         this.noOfSides = sides;
         xCoord = new double[sides];
         yCoord = new double[sides];

@@ -1,10 +1,10 @@
 /**
  * Created by Tarek Alqaddy on 4/27/2016.
  */
-public class Rectangle extends Polygons{
+public class iRectangle extends iPolygons {
     double width;
     double height;
-    public Rectangle(double width,double height){
+    public iRectangle(double width, double height){
         super(4);
         this.width = width;
         this.height = height;
