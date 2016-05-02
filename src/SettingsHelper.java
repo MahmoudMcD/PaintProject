@@ -28,6 +28,10 @@ public class SettingsHelper {
     private Label squareSideLengthLabel, squareColorLabel;
     private TextField squareSideLengthField, squareColorField;
 
+    // elements for the new triangle
+    private Label triangleGuideLabel;
+    private TextField triangleColorCodeField;
+
     public SettingsHelper()
     {
         // setting up the new circle settings
@@ -57,13 +61,18 @@ public class SettingsHelper {
         rectangleColorCodeField = new TextField("Black");
 
         // setting up the new square settings
-        squareColorLabel = new Label("Side Length: ");
+        squareSideLengthLabel = new Label("Side Length: ");
         squareColorLabel = new Label("Color/Color Code: ");
 
-        squareColorField = new TextField("20");
+        squareSideLengthField = new TextField("20");
         squareColorField = new TextField("Black");
 
+        // setting up the new triangle settings
+        triangleGuideLabel = new Label("Enter The color/color code then click on the three vertices  of the triangle");
+        triangleColorCodeField = new TextField("Black");
+
     }
+
 
     public Node[] getSettingsLayout(int type)
     {
@@ -102,6 +111,11 @@ public class SettingsHelper {
                 newElements[2] = squareColorLabel;
                 newElements[3] = squareColorField;
                 return newElements;
+            case 5:
+                newElements = new Node[2];
+                newElements[0] = triangleGuideLabel;
+                newElements[1] = triangleColorCodeField;
+                return newElements;
         }
         return null;
     }
@@ -122,6 +136,10 @@ public class SettingsHelper {
                 settings[0] = xRadiusField.getText();
                 settings[1] = yRadiusField.getText();
                 settings[2] = ellipsseColorCodeField.getText();
+                return settings;
+            case 5:
+                settings = new String[1];
+                settings[0] = triangleColorCodeField.getText();
                 return settings;
         }
         return null;

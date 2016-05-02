@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Paint;
 
+import java.util.Stack;
+
 /**
  * Created by mahmoud on 5/2/2016.
  */
@@ -32,6 +34,12 @@ public class GUIHelpers {
     private Label welcomeLabel;
 
     private int status;
+
+    // in case of listening for points
+    private int listeningForPoints = 0;
+    private int numberOfPoints = 0;
+    private int desiredNumberOfPoints = 0;
+    private Stack<Double> points;
 
     public GUIHelpers()
     {
@@ -93,7 +101,7 @@ public class GUIHelpers {
 
         triangleIcon = new ImageView(new Image("images/triangle.png", 24, 24, true, true));
         triangleIcon.setOnMouseClicked(e -> {
-            setSettings(5);
+            setSettings(5, 3);
         });
 
         polygonIcon = new ImageView(new Image("images/polygon.png", 24, 24, true, true));
@@ -112,23 +120,73 @@ public class GUIHelpers {
 
     }
 
+    // set the gui helper to listen for x clicks and make new point stack
+    public void listenFor(int numberOfPoints)
+    {
+        this.desiredNumberOfPoints = numberOfPoints;
+        //points = new Double[numberOfPoints];
+        points = new Stack<>();
+    }
+
+    /* when this function is called we add the new point to the points stack
+     * and check whether the guiHelper received all the points it needs or not
+     */
+    public Boolean pointClicked(double xCoordinate, double yCoordinate)
+    {
+
+        if (listeningForPoints == 1 && numberOfPoints != desiredNumberOfPoints)
+        {
+            //points[numberOfPoints] = xCoordinate;
+            //points[numberOfPoints + 1] = yCoordinate;
+            //System.out.println(points[numberOfPoints] + " " + points[numberOfPoints + 1]);
+            points.push(xCoordinate);
+            points.push(yCoordinate);
+            numberOfPoints++;
+        }
+
+        if (numberOfPoints  == desiredNumberOfPoints)
+        {
+            setSettings(status);
+            listeningForPoints = 0;
+            numberOfPoints = 0;
+            desiredNumberOfPoints = 0;
+            return true;
+        }
+
+        return false;
+    }
+
     public MenuBar getMenuBar() {return menuBar;}
 
     public HBox getSettingsLayout() { return settingsLayout; }
 
     public HBox getShapesMenu() { return shapesMenu; }
 
-    public void changeLabel()
-    {
-        System.out.println("Hello");
-        welcomeLabel.setText("Hello there");
-    }
-
     public int getStatus() {return status; }
 
     public SettingsHelper getSettingsHelper() {return settingsHelper;}
 
+    public int getDesiredNumberOfPoints() {
+        return desiredNumberOfPoints;
+    }
 
+    public int getNumberOfPoints() {
+        return numberOfPoints;
+    }
+
+    public int getListeningForPoints() {
+        return listeningForPoints;
+    }
+
+    public /*Double[]*/ Stack<Double> getPoints() {
+        return points;
+    }
+
+    /* when this function is called we check if status is the same as the number of the
+     * icon clicked is so we cancel the draw request and reset the settings layout to the welcome
+     * label.
+     * if not we set the request and the settings layout
+     */
     private void setSettings(int toBeSet)
     {
         if (status == toBeSet)
@@ -145,4 +203,33 @@ public class GUIHelpers {
         }
     }
 
+    /* when this function is called we set the guiHelper to direct the next x clicks to
+     * the points stack to draw a shape and if the status is toBeSet handle like the previous
+     * function.
+     */
+    private void setSettings(int toBeSet, int numberOfPoints)
+    {
+        if (status == toBeSet)
+        {
+            status = 0;
+            settingsLayout.getChildren().clear();
+            settingsLayout.getChildren().addAll(welcomeLabel);
+            listeningForPoints = 0;
+            this.numberOfPoints = 0;
+            desiredNumberOfPoints = 0;
+            points = null;
+        }
+        else
+        {
+            System.out.println("You are now listening");
+            status = toBeSet;
+            settingsLayout.getChildren().clear();
+            settingsLayout.getChildren().addAll(settingsHelper.getSettingsLayout(toBeSet));
+            listeningForPoints = 1;
+            this.numberOfPoints = 0;
+            desiredNumberOfPoints = numberOfPoints;
+            //points = new Double[numberOfPoints * 2];
+            points = new Stack<>();
+        }
+    }
 }

@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -66,28 +67,67 @@ public class GUIMain extends Application{
         shapesRoot.setPadding(new Insets(100, 0, 0, 0));
         BorderPane.setAlignment(shapesRoot, Pos.CENTER);
 
+
+        /* when the Pane is clicked on guiHelpers is called to determine whether
+         * the guiHelper is listening for points for a previous shape draw or not
+         */
         // TODO use draw application
         shapesRoot.setOnMouseClicked(e -> {
-            String[] settings;
-            switch (guiHelpers.getStatus())
+            if (guiHelpers.getListeningForPoints() == 1)
             {
-                case 1:
-                    settings = guiHelpers.getSettingsHelper().getSettings(1);
-                    Circle circle = new Circle(Double.valueOf(settings[0]));
-                    circle.setFill(Paint.valueOf(settings[1]));
-                    circle.setCenterX(e.getX());
-                    circle.setCenterY(e.getY());
-                    shapesRoot.getChildren().add(circle);
-                    break;
-                case 2:
-                    settings = guiHelpers.getSettingsHelper().getSettings(2);
-                    Ellipse ellipse = new Ellipse(Double.valueOf(settings[0]), Double.valueOf(settings[1]));
-                    ellipse.setFill(Paint.valueOf(settings[2]));
-                    ellipse.setCenterX(e.getX());
-                    ellipse.setCenterY(e.getY());
-                    shapesRoot.getChildren().add(ellipse);
-                    break;
+                /* if the guiHelper is listening for points the new point is added
+                 * then we check if guiHelper received all the points it need to draw the shape
+                 * if so a new polygon is created with the points recorded in the guiHelper
+                 */
+                System.out.println("You are listening");
+                System.out.println(e.getX() +" "+ e.getY());
+                System.out.println(guiHelpers.getStatus());
+                int temp = guiHelpers.getStatus();
+                if (guiHelpers.pointClicked(e.getX(), e.getY()))
+                {
+                    Polygon polygon = new Polygon();
+                    polygon.getPoints().addAll(guiHelpers.getPoints());
+
+                    String[] settings;
+
+                    switch (temp)
+                    {
+                        case 5:
+                            settings = guiHelpers.getSettingsHelper().getSettings(5);
+                            polygon.setFill(Paint.valueOf(settings[0]));
+                    }
+                    shapesRoot.getChildren().add(polygon);
+                }
             }
+            else
+            {
+                /* if the guiHelper is not listening for any points we check whether it's waiting for
+                 * a position for a shape draw request of not and handle the request by ordering the shape
+                 * draw settings from the settingsHelper in the guiHelper
+                 */
+                String[] settings;
+                switch (guiHelpers.getStatus()) {
+                    case 1:
+                        settings = guiHelpers.getSettingsHelper().getSettings(1);
+                        Circle circle = new Circle(Double.valueOf(settings[0]));
+                        circle.setFill(Paint.valueOf(settings[1]));
+                        circle.setCenterX(e.getX());
+                        circle.setCenterY(e.getY());
+                        shapesRoot.getChildren().add(circle);
+                        break;
+                    case 2:
+                        settings = guiHelpers.getSettingsHelper().getSettings(2);
+                        Ellipse ellipse = new Ellipse(Double.valueOf(settings[0]), Double.valueOf(settings[1]));
+                        ellipse.setFill(Paint.valueOf(settings[2]));
+                        ellipse.setCenterX(e.getX());
+                        ellipse.setCenterY(e.getY());
+                        shapesRoot.getChildren().add(ellipse);
+                        break;
+                    case 5:
+                        // TODO
+                }
+            }
+            e.consume();
         });
 
         // Setting the scene
