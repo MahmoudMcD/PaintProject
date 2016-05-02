@@ -127,8 +127,8 @@ public class DrawApplication {
                 break;
             case "iLine":
                 temp.getShape().resizeShape(moreInfo);
-                ((javafx.scene.shape.Line) temp.getShapeFX()).setEndX(((Line) temp.getShape()).getEndX());
-                ((javafx.scene.shape.Line) temp.getShapeFX()).setEndX(((Line) temp.getShape()).getEndY());
+                //((javafx.scene.shape.Line) temp.getShapeFX()).setEndX(((Line) temp.getShape()).getEndX());
+                //((javafx.scene.shape.Line) temp.getShapeFX()).setEndX(((Line) temp.getShape()).getEndY());
                 break;
 
             case "Polygon":
