@@ -34,6 +34,7 @@ public abstract class iShape implements Cloneable{
     }
 
     public Color getFillColor() { return fillColor; }
+
     public double getRotationAngle() {return rotationAngle;}
 
     public void setFillColor(Color color)
@@ -45,5 +46,6 @@ public abstract class iShape implements Cloneable{
     {
         this.rotationAngle = rotationAngle;
     }
+
 
 }

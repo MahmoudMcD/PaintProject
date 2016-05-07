@@ -1,7 +1,10 @@
+import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 
 /**
@@ -14,6 +17,7 @@ public class SettingsHelper {
     private Label colorCodeLabel;
     private TextField radiusField;
     private TextField colorCodeField;
+    private TextField circleLineStrokeField;
 
 
     // elements for new ellipse draw
@@ -32,6 +36,14 @@ public class SettingsHelper {
     private Label triangleGuideLabel;
     private TextField triangleColorCodeField;
 
+    // elements for the new line
+    private Label lineStrokeWidthLabel;
+    private TextField lineColorCodeField, lineStrokeWidthField;
+
+    // elements for new polygon
+    private ChoiceBox<Integer> noOfSidesChoiceBox;
+    private TextField polygonColorCodeField;
+
     public SettingsHelper()
     {
         // setting up the new circle settings
@@ -39,6 +51,7 @@ public class SettingsHelper {
         colorCodeLabel = new Label("Color Code: ");
         radiusField = new TextField("10");
         colorCodeField = new TextField("#000000");
+
 
         // setting up the new ellipse settings
         yRadiusLabel = new Label("Y-Radius: ");
@@ -71,6 +84,17 @@ public class SettingsHelper {
         triangleGuideLabel = new Label("Enter The color/color code then click on the three vertices  of the triangle");
         triangleColorCodeField = new TextField("Black");
 
+        // setting up the new line settings
+        lineStrokeWidthLabel = new Label("Line Width : ");
+        lineColorCodeField = new TextField("Black");
+        lineStrokeWidthField = new TextField("3");
+
+        // setting up the new polygon settings
+        noOfSidesChoiceBox = new ChoiceBox<>();
+        noOfSidesChoiceBox.setTooltip(new Tooltip("Choose the number of sides then click on the start point"));
+        noOfSidesChoiceBox.getItems().addAll(5, 6, 7);
+        noOfSidesChoiceBox.getSelectionModel().selectFirst();
+        polygonColorCodeField = new TextField("Black");
     }
 
 
@@ -116,6 +140,19 @@ public class SettingsHelper {
                 newElements[0] = triangleGuideLabel;
                 newElements[1] = triangleColorCodeField;
                 return newElements;
+            case 6:
+                newElements = new Node[3];
+                newElements[0] = noOfSidesChoiceBox;
+                newElements[1] = squareColorLabel;
+                newElements[2] = polygonColorCodeField;
+                return newElements;
+            case 7:
+                newElements = new Node[4];
+                newElements[0] = squareColorLabel;
+                newElements[1] = lineColorCodeField;
+                newElements[2] = lineStrokeWidthLabel;
+                newElements[3] = lineStrokeWidthField;
+                return newElements;
         }
         return null;
     }
@@ -140,6 +177,16 @@ public class SettingsHelper {
             case 5:
                 settings = new String[1];
                 settings[0] = triangleColorCodeField.getText();
+                return settings;
+            case 6:
+                settings = new String[2];
+                settings[0] = String.valueOf(noOfSidesChoiceBox.getSelectionModel().getSelectedItem());
+                settings[1] = polygonColorCodeField.getText();
+                return settings;
+            case 7:
+                settings = new String[2];
+                settings[0] = lineColorCodeField.getText();
+                settings[1] = lineStrokeWidthField.getText();
                 return settings;
         }
         return null;

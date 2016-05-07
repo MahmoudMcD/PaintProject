@@ -11,11 +11,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
+
+import java.util.Stack;
 
 /**
  * Created by mahmoud on 5/2/2016.
@@ -73,7 +72,8 @@ public class GUIMain extends Application{
          */
         // TODO use draw application
         shapesRoot.setOnMouseClicked(e -> {
-            if (guiHelpers.getListeningForPoints() == 1)
+            if (guiHelpers.getListeningForPoints() == 1 && (guiHelpers.getStatus() == 5 || guiHelpers.getStatus() == 7)
+                    /*TODO add the rest */)
             {
                 /* if the guiHelper is listening for points the new point is added
                  * then we check if guiHelper received all the points it need to draw the shape
@@ -85,6 +85,30 @@ public class GUIMain extends Application{
                 int temp = guiHelpers.getStatus();
                 if (guiHelpers.pointClicked(e.getX(), e.getY()))
                 {
+                    Shape shape = null;
+                    Stack<Double> points = guiHelpers.getPoints();
+                    String[] settings = guiHelpers.getSettingsHelper().getSettings(temp);
+                    switch (temp)
+                    {
+                        case 5:
+                            shape = new Polygon();
+                            ((Polygon) shape).getPoints().addAll(points);
+                            shape.setFill(Paint.valueOf(settings[0]));
+                            break;
+                        case 7:
+                            shape = new Line();
+                            shape.setStrokeWidth(Double.valueOf(settings[1]));
+                            ((Line) shape).setEndY(points.pop());
+                            ((Line) shape).setEndX(points.pop());
+                            ((Line) shape).setStartY(points.pop());
+                            ((Line) shape).setStartX(points.pop());
+                            shape.setFill(Paint.valueOf(settings[0]));
+                            break;
+                    }
+
+                    shapesRoot.getChildren().add(shape);
+
+                    /*
                     Polygon polygon = new Polygon();
                     polygon.getPoints().addAll(guiHelpers.getPoints());
 
@@ -96,7 +120,7 @@ public class GUIMain extends Application{
                             settings = guiHelpers.getSettingsHelper().getSettings(5);
                             polygon.setFill(Paint.valueOf(settings[0]));
                     }
-                    shapesRoot.getChildren().add(polygon);
+                    shapesRoot.getChildren().add(polygon);*/
                 }
             }
             else
@@ -123,8 +147,7 @@ public class GUIMain extends Application{
                         ellipse.setCenterY(e.getY());
                         shapesRoot.getChildren().add(ellipse);
                         break;
-                    case 5:
-                        // TODO
+                    // TODO
                 }
             }
             e.consume();

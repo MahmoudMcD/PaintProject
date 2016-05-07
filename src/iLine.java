@@ -5,6 +5,8 @@ public class iLine extends iShape {
 
     private double xStart, xEnd;
     private double yStart, yEnd;
+    // Added
+    private double strokeWidth;
 
     public iLine(double xStart, double yStart, double xEnd, double yEnd)
     {
@@ -32,6 +34,14 @@ public class iLine extends iShape {
         yStart = newInfo[1];
         xEnd = newInfo[2];
         yEnd = newInfo[3];
+    }
+
+    public double getStrokeWidth() {
+        return strokeWidth;
+    }
+
+    public void setStrokeWidth(double strokeWidth) {
+        this.strokeWidth = strokeWidth;
     }
 
 }

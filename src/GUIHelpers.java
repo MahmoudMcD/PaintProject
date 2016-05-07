@@ -111,7 +111,7 @@ public class GUIHelpers {
 
         lineIcon = new ImageView(new Image("images/line.png", 24, 24, true, true));
         lineIcon.setOnMouseClicked(e -> {
-            setSettings(7);
+            setSettings(7, 2);
         });
 
         shapesMenu.getChildren().addAll(circleIcon, ellipseIcon, squareIcon, rectangleIcon,
