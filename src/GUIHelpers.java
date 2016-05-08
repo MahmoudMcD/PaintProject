@@ -1,8 +1,5 @@
 import javafx.geometry.Insets;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -40,6 +37,11 @@ public class GUIHelpers {
     private int numberOfPoints = 0;
     private int desiredNumberOfPoints = 0;
     private Stack<Double> points;
+
+
+    // settings for the context menu
+    private ContextMenu contextMenu;
+    private MenuItem editMenuItem, copyMenuItem, deleteMenuItem;
 
     public GUIHelpers()
     {
@@ -118,6 +120,24 @@ public class GUIHelpers {
                 triangleIcon, polygonIcon, lineIcon);
 
 
+        // setting up the context menu
+        contextMenu = new ContextMenu();
+        editMenuItem = new MenuItem("Edit");
+        editMenuItem.setOnAction(e -> {
+            // TODO
+        });
+
+        copyMenuItem = new MenuItem("Copy");
+        copyMenuItem.setOnAction(e -> {
+            // TODO
+        });
+
+        deleteMenuItem = new MenuItem("Delete");
+        deleteMenuItem.setOnAction(e -> {
+            // TODO
+        });
+        contextMenu.getItems().addAll(editMenuItem, copyMenuItem, deleteMenuItem);
+
     }
 
     // set the gui helper to listen for x clicks and make new point stack
@@ -164,7 +184,7 @@ public class GUIHelpers {
 
     public int getStatus() {return status; }
 
-    public SettingsHelper getSettingsHelper() {return settingsHelper;}
+    public SettingsHelper getSettingsHelper() { return settingsHelper;}
 
     public int getDesiredNumberOfPoints() {
         return desiredNumberOfPoints;
@@ -181,6 +201,8 @@ public class GUIHelpers {
     public /*Double[]*/ Stack<Double> getPoints() {
         return points;
     }
+
+    public ContextMenu getContextMenu() {  return contextMenu; }
 
     /* when this function is called we check if status is the same as the number of the
      * icon clicked is so we cancel the draw request and reset the settings layout to the welcome
