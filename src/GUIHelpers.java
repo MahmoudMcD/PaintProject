@@ -184,6 +184,12 @@ public class GUIHelpers {
 
     public int getStatus() {return status; }
 
+    public void setStatus(int status)
+    {
+        this.status = status;
+        setSettings(status);
+    }
+
     public SettingsHelper getSettingsHelper() { return settingsHelper;}
 
     public int getDesiredNumberOfPoints() {

@@ -42,7 +42,8 @@ public class SettingsHelper {
 
     // elements for new polygon
     private ChoiceBox<Integer> noOfSidesChoiceBox;
-    private TextField polygonColorCodeField;
+    private TextField polygonColorCodeField, polygonSideLengthField;
+    private Label polygonSideLengthLabel;
 
     public SettingsHelper()
     {
@@ -91,10 +92,13 @@ public class SettingsHelper {
 
         // setting up the new polygon settings
         noOfSidesChoiceBox = new ChoiceBox<>();
-        noOfSidesChoiceBox.setTooltip(new Tooltip("Choose the number of sides then click on the start point"));
-        noOfSidesChoiceBox.getItems().addAll(5, 6, 7);
+        noOfSidesChoiceBox.setTooltip(new Tooltip("Choose the number of sides and side length then click on " +
+                "the center point"));
+        noOfSidesChoiceBox.getItems().addAll(5, 6, 7, 8);
         noOfSidesChoiceBox.getSelectionModel().selectFirst();
         polygonColorCodeField = new TextField("Black");
+        polygonSideLengthLabel = new Label("Side Length : ");
+        polygonSideLengthField = new TextField("10");
     }
 
 
@@ -147,10 +151,12 @@ public class SettingsHelper {
                 return newElements;
             case 6:
                 //for polygon
-                newElements = new Node[3];
+                newElements = new Node[5];
                 newElements[0] = noOfSidesChoiceBox;
-                newElements[1] = squareColorLabel;
-                newElements[2] = polygonColorCodeField;
+                newElements[1] = polygonSideLengthLabel;
+                newElements[2] = polygonSideLengthField;
+                newElements[3] = squareColorLabel;
+                newElements[4] = polygonColorCodeField;
                 return newElements;
             case 7:
                 //for line
@@ -196,9 +202,10 @@ public class SettingsHelper {
                 settings[0] = triangleColorCodeField.getText();
                 return settings;
             case 6:
-                settings = new String[2];
+                settings = new String[3];
                 settings[0] = String.valueOf(noOfSidesChoiceBox.getSelectionModel().getSelectedItem());
-                settings[1] = polygonColorCodeField.getText();
+                settings[1] = polygonSideLengthField.getText();
+                settings[2] = polygonColorCodeField.getText();
                 return settings;
             case 7:
                 settings = new String[2];

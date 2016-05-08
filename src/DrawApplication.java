@@ -224,4 +224,14 @@ public class DrawApplication {
     public void setRoot(Pane root) {
         this.root = root;
     }
+
+    public ShapeLink searchFor(Shape shape)
+    {
+        for (ShapeLink shapeLink: shapes)
+        {
+            if (shapeLink.getShapeFX() == shape)
+                return shapeLink;
+        }
+        return null;
+    }
 }

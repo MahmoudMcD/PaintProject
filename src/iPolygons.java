@@ -4,6 +4,7 @@
 public class iPolygons extends iShape {
     private double[] xCoord,yCoord;
     private int noOfSides;
+    private double sideLength;
 
     public iPolygons(int sides){
         this.noOfSides = sides;
@@ -64,5 +65,13 @@ public class iPolygons extends iShape {
 
     public void setNoOfSides(int noOfSides) {
         this.noOfSides = noOfSides;
+    }
+
+    public double getSideLength() {
+        return sideLength;
+    }
+
+    public void setSideLength(double sideLength) {
+        this.sideLength = sideLength;
     }
 }

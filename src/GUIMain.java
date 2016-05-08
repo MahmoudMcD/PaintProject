@@ -189,7 +189,14 @@ public class GUIMain extends Application{
                             drawApplication.addShape(square);
                             setUpNewShape(square);
                             break;
-
+                        case 6:
+                            settings = guiHelpers.getSettingsHelper().getSettings(6);
+                            Polygon polygon = new Polygon();
+                            polygon.getPoints().addAll(MathHelper.calculatePolygonVertices(e.getX(), e.getY(),
+                                    Double.valueOf(settings[1]), Integer.valueOf(settings[0])));
+                            polygon.setFill(Paint.valueOf(settings[2]));
+                            //drawApplication.addShape(polygon);
+                            setUpNewShape(polygon);
                     }
                 }
             }
@@ -213,11 +220,17 @@ public class GUIMain extends Application{
     public void setUpNewShape(Shape shape)
     {
         shapesRoot.getChildren().add(shape);
+
         shape.setOnMouseClicked(e -> {
             // if the user right-clicked the shape show the context menu
             if (e.getButton() == MouseButton.SECONDARY)
                 guiHelpers.getContextMenu().show(shape, e.getSceneX(), e.getScreenY());
         });
+
+        ShapeLink shapeLink = drawApplication.searchFor(shape);
+
+        // handling the drag to move the shape
+        shape.setOnMouseDragged(new DragEventHandler(shapeLink.getType(), shape, shapeLink.getShape(), guiHelpers));
     }
 
 }
