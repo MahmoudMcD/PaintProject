@@ -90,43 +90,41 @@ public class GUIMain extends Application{
          */
         // TODO use draw application
         shapesRoot.setOnMouseClicked(e -> {
-            if (guiHelpers.getListeningForPoints() == 1 && (guiHelpers.getStatus() == 5 || guiHelpers.getStatus() == 7)
-                    /*TODO add the rest */)
-            {
+            if (e.getButton() == MouseButton.PRIMARY) {
+                if (guiHelpers.getListeningForPoints() == 1 && (guiHelpers.getStatus() == 5 || guiHelpers.getStatus() == 7)
+                    /*TODO add the rest */) {
                 /* if the guiHelper is listening for points the new point is added
                  * then we check if guiHelper received all the points it need to draw the shape
                  * if so a new polygon is created with the points recorded in the guiHelper
                  */
-                System.out.println("You are listening");
-                System.out.println(e.getX() +" "+ e.getY());
-                System.out.println(guiHelpers.getStatus());
-                int temp = guiHelpers.getStatus();
-                if (guiHelpers.pointClicked(e.getX(), e.getY()))
-                {
-                    Shape shape;
-                    Stack<Double> points = guiHelpers.getPoints();
-                    String[] settings = guiHelpers.getSettingsHelper().getSettings(temp);
-                    switch (temp)
-                    {
-                        case 5:
-                            shape = new Polygon();
-                            ((Polygon) shape).getPoints().addAll(points);
-                            shape.setFill(Paint.valueOf(settings[0]));
-                            drawApplication.addShape(shape);
-                            setUpNewShape(shape);
-                            break;
-                        case 7:
-                            shape = new Line();
-                            shape.setStrokeWidth(Double.valueOf(settings[1]));
-                            ((Line) shape).setEndY(points.pop());
-                            ((Line) shape).setEndX(points.pop());
-                            ((Line) shape).setStartY(points.pop());
-                            ((Line) shape).setStartX(points.pop());
-                            shape.setFill(Paint.valueOf(settings[0]));
-                            drawApplication.addShape(shape);
-                            setUpNewShape(shape);
-                            break;
-                    }
+                    System.out.println("You are listening");
+                    System.out.println(e.getX() + " " + e.getY());
+                    System.out.println(guiHelpers.getStatus());
+                    int temp = guiHelpers.getStatus();
+                    if (guiHelpers.pointClicked(e.getX(), e.getY())) {
+                        Shape shape;
+                        Stack<Double> points = guiHelpers.getPoints();
+                        String[] settings = guiHelpers.getSettingsHelper().getSettings(temp);
+                        switch (temp) {
+                            case 5:
+                                shape = new Polygon();
+                                ((Polygon) shape).getPoints().addAll(points);
+                                shape.setFill(Paint.valueOf(settings[0]));
+                                drawApplication.addShape(shape);
+                                setUpNewShape(shape);
+                                break;
+                            case 7:
+                                shape = new Line();
+                                shape.setStrokeWidth(Double.valueOf(settings[1]));
+                                ((Line) shape).setEndY(points.pop());
+                                ((Line) shape).setEndX(points.pop());
+                                ((Line) shape).setStartY(points.pop());
+                                ((Line) shape).setStartX(points.pop());
+                                shape.setFill(Paint.valueOf(settings[0]));
+                                drawApplication.addShape(shape);
+                                setUpNewShape(shape);
+                                break;
+                        }
 
                     /*
                     shapesRoot.getChildren().add(shape);
@@ -147,53 +145,52 @@ public class GUIMain extends Application{
                             polygon.setFill(Paint.valueOf(settings[0]));
                     }
                     shapesRoot.getChildren().add(polygon);*/
-                }
-            }
-            else
-            {
+                    }
+                } else {
                 /* if the guiHelper is not listening for any points we check whether it's waiting for
                  * a position for a shape draw request of not and handle the request by ordering the shape
                  * draw settings from the settingsHelper in the guiHelper
                  */
-                String[] settings;
-                switch (guiHelpers.getStatus()) {
-                    case 1:
-                        settings = guiHelpers.getSettingsHelper().getSettings(1);
-                        Circle circle = new Circle(Double.valueOf(settings[0]));
-                        circle.setFill(Paint.valueOf(settings[1]));
-                        circle.setCenterX(e.getX());
-                        circle.setCenterY(e.getY());
-                        drawApplication.addShape(circle);
-                        setUpNewShape(circle);
-                        break;
-                    case 2:
-                        settings = guiHelpers.getSettingsHelper().getSettings(2);
-                        Ellipse ellipse = new Ellipse(Double.valueOf(settings[0]), Double.valueOf(settings[1]));
-                        ellipse.setFill(Paint.valueOf(settings[2]));
-                        ellipse.setCenterX(e.getX());
-                        ellipse.setCenterY(e.getY());
-                        drawApplication.addShape(ellipse);
-                        setUpNewShape(ellipse);
-                        break;
-                    case 3:
-                        settings = guiHelpers.getSettingsHelper().getSettings(3);
-                        Rectangle rectangle = new Rectangle(Double.valueOf(settings[0]),Double.valueOf(settings[1]));
-                        rectangle.setFill(Paint.valueOf(settings[2]));
-                        rectangle.setX(e.getX());
-                        rectangle.setY(e.getY());
-                        drawApplication.addShape(rectangle);
-                        setUpNewShape(rectangle);
-                        break;
-                    case 4:
-                        settings = guiHelpers.getSettingsHelper().getSettings(4);
-                        Rectangle square = new Rectangle(Double.valueOf(settings[0]),Double.valueOf(settings[0]));
-                        square.setFill(Paint.valueOf(settings[1]));
-                        square.setX(e.getX());
-                        square.setY(e.getY());
-                        drawApplication.addShape(square);
-                        setUpNewShape(square);
-                        break;
+                    String[] settings;
+                    switch (guiHelpers.getStatus()) {
+                        case 1:
+                            settings = guiHelpers.getSettingsHelper().getSettings(1);
+                            Circle circle = new Circle(Double.valueOf(settings[0]));
+                            circle.setFill(Paint.valueOf(settings[1]));
+                            circle.setCenterX(e.getX());
+                            circle.setCenterY(e.getY());
+                            drawApplication.addShape(circle);
+                            setUpNewShape(circle);
+                            break;
+                        case 2:
+                            settings = guiHelpers.getSettingsHelper().getSettings(2);
+                            Ellipse ellipse = new Ellipse(Double.valueOf(settings[0]), Double.valueOf(settings[1]));
+                            ellipse.setFill(Paint.valueOf(settings[2]));
+                            ellipse.setCenterX(e.getX());
+                            ellipse.setCenterY(e.getY());
+                            drawApplication.addShape(ellipse);
+                            setUpNewShape(ellipse);
+                            break;
+                        case 3:
+                            settings = guiHelpers.getSettingsHelper().getSettings(3);
+                            Rectangle rectangle = new Rectangle(Double.valueOf(settings[0]), Double.valueOf(settings[1]));
+                            rectangle.setFill(Paint.valueOf(settings[2]));
+                            rectangle.setX(e.getX());
+                            rectangle.setY(e.getY());
+                            drawApplication.addShape(rectangle);
+                            setUpNewShape(rectangle);
+                            break;
+                        case 4:
+                            settings = guiHelpers.getSettingsHelper().getSettings(4);
+                            Rectangle square = new Rectangle(Double.valueOf(settings[0]), Double.valueOf(settings[0]));
+                            square.setFill(Paint.valueOf(settings[1]));
+                            square.setX(e.getX());
+                            square.setY(e.getY());
+                            drawApplication.addShape(square);
+                            setUpNewShape(square);
+                            break;
 
+                    }
                 }
             }
             e.consume();
