@@ -31,4 +31,27 @@ public class EllipticalShapes extends iShape {
         center[1] = newCoordinates[1];
     }
 
+    public Double[] getCenter() {
+        return center;
+    }
+
+    public void setCenter(Double[] center) {
+        this.center = center;
+    }
+
+    public double getxRadius() {
+        return xRadius;
+    }
+
+    public void setxRadius(double xRadius) {
+        this.xRadius = xRadius;
+    }
+
+    public double getyRadius() {
+        return yRadius;
+    }
+
+    public void setyRadius(double yRadius) {
+        this.yRadius = yRadius;
+    }
 }

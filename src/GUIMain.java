@@ -34,7 +34,19 @@ public class GUIMain extends Application{
     GUIHelpers guiHelpers;
     Rectangle clip;
 
+    DrawApplication drawApplication;
 
+
+    /*
+        shapes Numbers:
+        1- Circle
+        2- Ellipse
+        3- Rectangle
+        4- Square
+        5- Triangle
+        6- Polygon
+        7- Line
+     */
 
 
     public static void main(String[] args) {
@@ -43,6 +55,10 @@ public class GUIMain extends Application{
 
     public void start(Stage primaryStage)
     {
+
+        //init drawApp 'singleton'
+        drawApplication = drawApplication.getInstance();
+
         mainLayout = new BorderPane();
 
 
@@ -58,8 +74,9 @@ public class GUIMain extends Application{
         // setting the settings box
         settingsLayout = guiHelpers.getSettingsLayout();
 
-        // setting the shape root
-        shapesRoot = new Pane();
+        // setting the shape root from the drawApp
+
+        shapesRoot = drawApplication.getRoot();
         shapesRoot.setStyle("-fx-background-color: #ffffff;");
         clip = new Rectangle(windowWidth, windowHeight);
         shapesRoot.setClip(clip);
@@ -94,6 +111,7 @@ public class GUIMain extends Application{
                             shape = new Polygon();
                             ((Polygon) shape).getPoints().addAll(points);
                             shape.setFill(Paint.valueOf(settings[0]));
+                            drawApplication.addShape(shape);
                             break;
                         case 7:
                             shape = new Line();
@@ -103,6 +121,7 @@ public class GUIMain extends Application{
                             ((Line) shape).setStartY(points.pop());
                             ((Line) shape).setStartX(points.pop());
                             shape.setFill(Paint.valueOf(settings[0]));
+                            drawApplication.addShape(shape);
                             break;
                     }
 
@@ -137,6 +156,7 @@ public class GUIMain extends Application{
                         circle.setFill(Paint.valueOf(settings[1]));
                         circle.setCenterX(e.getX());
                         circle.setCenterY(e.getY());
+                        drawApplication.addShape(circle);
                         shapesRoot.getChildren().add(circle);
                         break;
                     case 2:
@@ -145,9 +165,28 @@ public class GUIMain extends Application{
                         ellipse.setFill(Paint.valueOf(settings[2]));
                         ellipse.setCenterX(e.getX());
                         ellipse.setCenterY(e.getY());
+                        drawApplication.addShape(ellipse);
                         shapesRoot.getChildren().add(ellipse);
                         break;
-                    // TODO
+                    case 3:
+                        settings = guiHelpers.getSettingsHelper().getSettings(3);
+                        Rectangle rectangle = new Rectangle(Double.valueOf(settings[0]),Double.valueOf(settings[1]));
+                        rectangle.setFill(Paint.valueOf(settings[2]));
+                        rectangle.setX(e.getX());
+                        rectangle.setY(e.getY());
+                        drawApplication.addShape(rectangle);
+                        shapesRoot.getChildren().add(rectangle);
+                        break;
+                    case 4:
+                        settings = guiHelpers.getSettingsHelper().getSettings(4);
+                        Rectangle square = new Rectangle(Double.valueOf(settings[0]),Double.valueOf(settings[0]));
+                        square.setFill(Paint.valueOf(settings[1]));
+                        square.setX(e.getX());
+                        square.setY(e.getY());
+                        drawApplication.addShape(square);
+                        shapesRoot.getChildren().add(square);
+                        break;
+
                 }
             }
             e.consume();

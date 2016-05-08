@@ -5,7 +5,7 @@ import javafx.scene.Node;
 
 public class ShapeLink {
     private iShape shape;
-    private javafx.scene.Node shapeFX;
+    private Node shapeFX;
     private String type;
 
     public iShape getShape() {

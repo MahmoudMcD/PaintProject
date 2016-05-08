@@ -4,8 +4,13 @@
 public class iTriangle extends iPolygons {
 
     double[] sideLength;
-    public iTriangle(){
+
+    public iTriangle(double[] sides){
         super(3);
+        sideLength = new double[3];
+        sideLength[0] = sides[0];
+        sideLength[1] = sides[1];
+        sideLength[2] = sides[2];
     }
 
     public void resizeShape(double... newInfo)
@@ -21,5 +26,10 @@ public class iTriangle extends iPolygons {
 
     public void setSideLength(double[] sideLength) {
         this.sideLength = sideLength;
+    }
+
+    @Override
+    public String toString(){
+        return "sides: "+ sideLength[0] + "\n" + sideLength[1] + "\n" + sideLength[2] + "\n";
     }
 }

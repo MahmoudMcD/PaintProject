@@ -19,4 +19,9 @@ public class iCircle extends EllipticalShapes {
     {
         super.resizeShape(newInfo[0], newInfo[0]);
     }
+
+    @Override
+    public String toString(){
+        return "radius: " + super.getxRadius() + " Center: " + super.getCenter()[0] + ", " +super.getCenter()[1];
+    }
 }
