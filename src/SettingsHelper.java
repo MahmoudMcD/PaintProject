@@ -191,6 +191,7 @@ public class SettingsHelper {
                 settings = new String[2];
                 settings[0] = squareSideLengthField.getText();
                 settings[1] = squareColorField.getText();
+                return settings;
             case 5:
                 settings = new String[1];
                 settings[0] = triangleColorCodeField.getText();

@@ -4,7 +4,9 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -36,6 +38,10 @@ public class GUIMain extends Application{
     Rectangle clip;
 
     DrawApplication drawApplication;
+
+    // settings for the context menu
+    private ContextMenu contextMenu;
+    private MenuItem editMenuItem, copyMenuItem, deleteMenuItem;
 
 
     /*
@@ -83,6 +89,28 @@ public class GUIMain extends Application{
         shapesRoot.setClip(clip);
         shapesRoot.setPadding(new Insets(100, 0, 0, 0));
         BorderPane.setAlignment(shapesRoot, Pos.CENTER);
+
+
+        // setting up the context menu
+        contextMenu = new ContextMenu();
+        editMenuItem = new MenuItem("Edit");
+        editMenuItem.setOnAction(e -> {
+
+            EditWindow w = new EditWindow(contextMenu.getOwnerNode(),drawApplication);
+            w.makeWindow();
+
+        });
+
+        copyMenuItem = new MenuItem("Copy");
+        copyMenuItem.setOnAction(e -> {
+            // TODO
+        });
+
+        deleteMenuItem = new MenuItem("Delete");
+        deleteMenuItem.setOnAction(e -> {
+            // TODO
+        });
+        contextMenu.getItems().addAll(editMenuItem, copyMenuItem, deleteMenuItem);
 
 
         /* when the Pane is clicked on guiHelpers is called to determine whether
@@ -216,8 +244,12 @@ public class GUIMain extends Application{
         shape.setOnMouseClicked(e -> {
             // if the user right-clicked the shape show the context menu
             if (e.getButton() == MouseButton.SECONDARY)
-                guiHelpers.getContextMenu().show(shape, e.getSceneX(), e.getScreenY());
+                getContextMenu().show(shape, e.getX(), e.getY());
         });
+    }
+
+    public ContextMenu getContextMenu() {
+        return contextMenu;
     }
 
 }

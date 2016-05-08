@@ -39,9 +39,7 @@ public class GUIHelpers {
     private Stack<Double> points;
 
 
-    // settings for the context menu
-    private ContextMenu contextMenu;
-    private MenuItem editMenuItem, copyMenuItem, deleteMenuItem;
+
 
     public GUIHelpers()
     {
@@ -120,23 +118,7 @@ public class GUIHelpers {
                 triangleIcon, polygonIcon, lineIcon);
 
 
-        // setting up the context menu
-        contextMenu = new ContextMenu();
-        editMenuItem = new MenuItem("Edit");
-        editMenuItem.setOnAction(e -> {
-            // TODO
-        });
 
-        copyMenuItem = new MenuItem("Copy");
-        copyMenuItem.setOnAction(e -> {
-            // TODO
-        });
-
-        deleteMenuItem = new MenuItem("Delete");
-        deleteMenuItem.setOnAction(e -> {
-            // TODO
-        });
-        contextMenu.getItems().addAll(editMenuItem, copyMenuItem, deleteMenuItem);
 
     }
 
@@ -201,8 +183,6 @@ public class GUIHelpers {
     public /*Double[]*/ Stack<Double> getPoints() {
         return points;
     }
-
-    public ContextMenu getContextMenu() {  return contextMenu; }
 
     /* when this function is called we check if status is the same as the number of the
      * icon clicked is so we cancel the draw request and reset the settings layout to the welcome

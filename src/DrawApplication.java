@@ -217,6 +217,29 @@ public class DrawApplication {
     }
 
 
+    public ShapeLink getShapeLink (iShape shape){
+        ShapeLink s = null;
+
+        for(ShapeLink s1 : shapes){
+            if(s1.getShape().equals(shape)){
+                s = s1;
+                break;
+            }
+        }
+        return s;
+    }
+
+    public ShapeLink getShapeLink(Node shape){
+        ShapeLink s = null;
+
+        for(ShapeLink s1 : shapes){
+            if(s1.getShapeFX().equals(shape)){
+                s = s1;
+                break;
+            }
+        }
+        return s;
+    }
     public Pane getRoot() {
         return root;
     }
