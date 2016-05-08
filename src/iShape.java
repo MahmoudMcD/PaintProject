@@ -47,5 +47,4 @@ public abstract class iShape implements Cloneable{
         this.rotationAngle = rotationAngle;
     }
 
-
 }

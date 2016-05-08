@@ -36,6 +36,7 @@ public class iLine extends iShape {
         yEnd = newInfo[3];
     }
 
+
     public double getStrokeWidth() {
         return strokeWidth;
     }

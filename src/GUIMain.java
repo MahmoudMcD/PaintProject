@@ -43,6 +43,11 @@ public class GUIMain extends Application{
     private ContextMenu contextMenu;
     private MenuItem editMenuItem, copyMenuItem, deleteMenuItem;
 
+    // settings for the main context menu
+    private ContextMenu mainContextMenu;
+    private MenuItem pasteMenuItem;
+
+    private CopyHandler copyHandler;
 
     /*
         shapes Numbers:
@@ -66,11 +71,16 @@ public class GUIMain extends Application{
         //init drawApp 'singleton'
         drawApplication = drawApplication.getInstance();
 
+
         mainLayout = new BorderPane();
 
 
         // setting the gui helper
         guiHelpers = new GUIHelpers();
+
+        // setting up the copy handler
+        copyHandler = new CopyHandler(drawApplication, guiHelpers);
+
 
         // Setting the menu bar
         menuBar = guiHelpers.getMenuBar();
@@ -102,16 +112,26 @@ public class GUIMain extends Application{
         });
 
         copyMenuItem = new MenuItem("Copy");
-        copyMenuItem.setOnAction(e -> {
-            // TODO
-        });
+        //copyMenuItem.setOnAction(new CopyHandler(contextMenu.getOwnerNode(), drawApplication));
+        copyMenuItem.setOnAction(e ->
+            copyHandler.handleCopy(contextMenu.getOwnerNode())
+        );
 
         deleteMenuItem = new MenuItem("Delete");
         deleteMenuItem.setOnAction(e -> {
-            // TODO
+
         });
         contextMenu.getItems().addAll(editMenuItem, copyMenuItem, deleteMenuItem);
 
+
+        // setting up the main context menu
+        mainContextMenu = new ContextMenu();
+        pasteMenuItem = new MenuItem("Paste");
+        pasteMenuItem.setOnAction(e -> {
+            Shape newShape = copyHandler.handlePaste();
+            setUpNewShape(newShape);
+        });
+        mainContextMenu.getItems().addAll(pasteMenuItem);
 
         /* when the Pane is clicked on guiHelpers is called to determine whether
          * the guiHelper is listening for points for a previous shape draw or not
@@ -119,6 +139,7 @@ public class GUIMain extends Application{
         // TODO use draw application
         shapesRoot.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {
+                mainContextMenu.hide();
                 if (guiHelpers.getListeningForPoints() == 1 && (guiHelpers.getStatus() == 5 || guiHelpers.getStatus() == 7)
                     /*TODO add the rest */) {
                 /* if the guiHelper is listening for points the new point is added
@@ -228,6 +249,18 @@ public class GUIMain extends Application{
                     }
                 }
             }
+            // new for the right click handling
+            else if (e.getButton() == MouseButton.SECONDARY)
+            {
+                mainContextMenu.show(drawApplication.getRoot() , e.getScreenX(), e.getScreenY());
+                if (!copyHandler.getShapeInHand())
+                    pasteMenuItem.setDisable(true);
+                else
+                {
+                    copyHandler.setMouseEvent(e);
+                    pasteMenuItem.setDisable(false);
+                }
+            }
             e.consume();
         });
 
@@ -260,6 +293,7 @@ public class GUIMain extends Application{
         // handling the drag to move the shape
         shape.setOnMouseDragged(new DragEventHandler(shapeLink.getType(), shape, shapeLink.getShape(), guiHelpers));
     }
+
 
     public ContextMenu getContextMenu() {
         return contextMenu;

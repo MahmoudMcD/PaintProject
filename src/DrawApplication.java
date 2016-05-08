@@ -257,4 +257,9 @@ public class DrawApplication {
         }
         return null;
     }
+
+    public void addShapeLink(ShapeLink shapeLink)
+    {
+        shapes.add(shapeLink);
+    }
 }
