@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -34,7 +35,19 @@ public class GUIMain extends Application{
     GUIHelpers guiHelpers;
     Rectangle clip;
 
+    DrawApplication drawApplication;
 
+
+    /*
+        shapes Numbers:
+        1- Circle
+        2- Ellipse
+        3- Rectangle
+        4- Square
+        5- Triangle
+        6- Polygon
+        7- Line
+     */
 
 
     public static void main(String[] args) {
@@ -43,6 +56,10 @@ public class GUIMain extends Application{
 
     public void start(Stage primaryStage)
     {
+
+        //init drawApp 'singleton'
+        drawApplication = drawApplication.getInstance();
+
         mainLayout = new BorderPane();
 
 
@@ -58,8 +75,9 @@ public class GUIMain extends Application{
         // setting the settings box
         settingsLayout = guiHelpers.getSettingsLayout();
 
-        // setting the shape root
-        shapesRoot = new Pane();
+        // setting the shape root from the drawApp
+
+        shapesRoot = drawApplication.getRoot();
         shapesRoot.setStyle("-fx-background-color: #ffffff;");
         clip = new Rectangle(windowWidth, windowHeight);
         shapesRoot.setClip(clip);
@@ -85,7 +103,7 @@ public class GUIMain extends Application{
                 int temp = guiHelpers.getStatus();
                 if (guiHelpers.pointClicked(e.getX(), e.getY()))
                 {
-                    Shape shape = null;
+                    Shape shape;
                     Stack<Double> points = guiHelpers.getPoints();
                     String[] settings = guiHelpers.getSettingsHelper().getSettings(temp);
                     switch (temp)
@@ -94,6 +112,8 @@ public class GUIMain extends Application{
                             shape = new Polygon();
                             ((Polygon) shape).getPoints().addAll(points);
                             shape.setFill(Paint.valueOf(settings[0]));
+                            drawApplication.addShape(shape);
+                            setUpNewShape(shape);
                             break;
                         case 7:
                             shape = new Line();
@@ -103,11 +123,17 @@ public class GUIMain extends Application{
                             ((Line) shape).setStartY(points.pop());
                             ((Line) shape).setStartX(points.pop());
                             shape.setFill(Paint.valueOf(settings[0]));
+                            drawApplication.addShape(shape);
+                            setUpNewShape(shape);
                             break;
                     }
 
+                    /*
                     shapesRoot.getChildren().add(shape);
-
+                    shape.setOnMouseClicked(event -> {
+                        guiHelpers.getContextMenu().show(shape, event.getX(), event.getY());
+                    });
+                    */
                     /*
                     Polygon polygon = new Polygon();
                     polygon.getPoints().addAll(guiHelpers.getPoints());
@@ -137,6 +163,7 @@ public class GUIMain extends Application{
                         circle.setFill(Paint.valueOf(settings[1]));
                         circle.setCenterX(e.getX());
                         circle.setCenterY(e.getY());
+                        drawApplication.addShape(circle);
                         shapesRoot.getChildren().add(circle);
                         break;
                     case 2:
@@ -145,9 +172,28 @@ public class GUIMain extends Application{
                         ellipse.setFill(Paint.valueOf(settings[2]));
                         ellipse.setCenterX(e.getX());
                         ellipse.setCenterY(e.getY());
+                        drawApplication.addShape(ellipse);
                         shapesRoot.getChildren().add(ellipse);
                         break;
-                    // TODO
+                    case 3:
+                        settings = guiHelpers.getSettingsHelper().getSettings(3);
+                        Rectangle rectangle = new Rectangle(Double.valueOf(settings[0]),Double.valueOf(settings[1]));
+                        rectangle.setFill(Paint.valueOf(settings[2]));
+                        rectangle.setX(e.getX());
+                        rectangle.setY(e.getY());
+                        drawApplication.addShape(rectangle);
+                        shapesRoot.getChildren().add(rectangle);
+                        break;
+                    case 4:
+                        settings = guiHelpers.getSettingsHelper().getSettings(4);
+                        Rectangle square = new Rectangle(Double.valueOf(settings[0]),Double.valueOf(settings[0]));
+                        square.setFill(Paint.valueOf(settings[1]));
+                        square.setX(e.getX());
+                        square.setY(e.getY());
+                        drawApplication.addShape(square);
+                        shapesRoot.getChildren().add(square);
+                        break;
+
                 }
             }
             e.consume();
@@ -163,5 +209,18 @@ public class GUIMain extends Application{
         primaryStage.show();
     }
 
+
+    /* Setting up the new Shape by adding it to the shapes root and setting up the
+     * Event listeners for clicks and dragging
+     */
+    public void setUpNewShape(Shape shape)
+    {
+        shapesRoot.getChildren().add(shape);
+        shape.setOnMouseClicked(e -> {
+            // if the user right-clicked the shape show the context menu
+            if (e.getButton() == MouseButton.SECONDARY)
+                guiHelpers.getContextMenu().show(shape, e.getSceneX(), e.getScreenY());
+        });
+    }
 
 }

@@ -44,4 +44,35 @@ public class iLine extends iShape {
         this.strokeWidth = strokeWidth;
     }
 
+    public double getxStart() {
+        return xStart;
+    }
+
+    public void setxStart(double xStart) {
+        this.xStart = xStart;
+    }
+
+    public double getxEnd() {
+        return xEnd;
+    }
+
+    public void setxEnd(double xEnd) {
+        this.xEnd = xEnd;
+    }
+
+    public double getyStart() {
+        return yStart;
+    }
+
+    public void setyStart(double yStart) {
+        this.yStart = yStart;
+    }
+
+    public double getyEnd() {
+        return yEnd;
+    }
+
+    public void setyEnd(double yEnd) {
+        this.yEnd = yEnd;
+    }
 }

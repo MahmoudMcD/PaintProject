@@ -104,6 +104,7 @@ public class SettingsHelper {
         switch (type)
         {
             case 1:
+                //for circle
                 newElements = new Node[4];
                 newElements[0] = radiusLabel;
                 newElements[1] = radiusField;
@@ -111,6 +112,7 @@ public class SettingsHelper {
                 newElements[3] = colorCodeField;
                 return newElements;
             case 2:
+                //for ellipse
                 newElements = new Node[6];
                 newElements[0] = xRadiusLabel;
                 newElements[1] = xRadiusField;
@@ -120,6 +122,7 @@ public class SettingsHelper {
                 newElements[5] = ellipsseColorCodeField;
                 return newElements;
             case 3:
+                //for rectangle
                 newElements = new Node[6];
                 newElements[0] = rectangleWidthLabel;
                 newElements[1] = rectangleWidthField;
@@ -129,6 +132,7 @@ public class SettingsHelper {
                 newElements[5] = rectangleColorCodeField;
                 return newElements;
             case 4:
+                //for square
                 newElements = new Node[4];
                 newElements[0] = squareSideLengthLabel;
                 newElements[1] = squareSideLengthField;
@@ -136,17 +140,20 @@ public class SettingsHelper {
                 newElements[3] = squareColorField;
                 return newElements;
             case 5:
+                //for triangle
                 newElements = new Node[2];
                 newElements[0] = triangleGuideLabel;
                 newElements[1] = triangleColorCodeField;
                 return newElements;
             case 6:
+                //for polygon
                 newElements = new Node[3];
                 newElements[0] = noOfSidesChoiceBox;
                 newElements[1] = squareColorLabel;
                 newElements[2] = polygonColorCodeField;
                 return newElements;
             case 7:
+                //for line
                 newElements = new Node[4];
                 newElements[0] = squareColorLabel;
                 newElements[1] = lineColorCodeField;
@@ -174,6 +181,16 @@ public class SettingsHelper {
                 settings[1] = yRadiusField.getText();
                 settings[2] = ellipsseColorCodeField.getText();
                 return settings;
+            case 3:
+                settings = new String[3];
+                settings[0] = rectangleWidthField.getText();
+                settings[1] = rectangleHeightField.getText();
+                settings[2] = rectangleColorCodeField.getText();
+                return settings;
+            case 4:
+                settings = new String[2];
+                settings[0] = squareSideLengthField.getText();
+                settings[1] = squareColorField.getText();
             case 5:
                 settings = new String[1];
                 settings[0] = triangleColorCodeField.getText();

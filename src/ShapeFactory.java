@@ -10,7 +10,8 @@ public class ShapeFactory implements SimpleShapeFactory {
             case "circle":
                 if (shapeInfo.length < 3)
                     throw new RuntimeException("UnSufficient information");
-                return makeCircle(shapeInfo[0], shapeInfo[1], shapeInfo[3]);
+                System.out.println(shapeInfo.length);
+                return makeCircle(shapeInfo[0], shapeInfo[1], shapeInfo[2]);
             case "ellipse":
                 if (shapeInfo.length < 4)
                     throw  new RuntimeException("UnSufficient information");
@@ -95,9 +96,15 @@ public class ShapeFactory implements SimpleShapeFactory {
 
     private iTriangle makeTriangle(double[] xCoordinates, double[] yCoordinates, double... otherInfo)
     {
-        iTriangle newTriangle = new iTriangle();
+        double sides[] = new double[3];
+        sides[0] = Math.sqrt(Math.pow(xCoordinates[0]-xCoordinates[1],2)+ Math.pow(yCoordinates[0]-yCoordinates[1],2));
+        sides[1] = Math.sqrt(Math.pow(xCoordinates[1]-xCoordinates[2],2)+ Math.pow(yCoordinates[1]-yCoordinates[2],2));
+        sides[2] = Math.sqrt(Math.pow(xCoordinates[2]-xCoordinates[0],2)+ Math.pow(yCoordinates[2]-yCoordinates[0],2));
+        System.out.println(sides[0]);
+        iTriangle newTriangle = new iTriangle(sides);
         newTriangle.setxCoord(xCoordinates);
         newTriangle.setyCoord(yCoordinates);
+
         if  (otherInfo.length == 1)
             newTriangle.setRotationAngle(otherInfo[0]);
         return newTriangle;
