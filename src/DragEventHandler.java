@@ -55,6 +55,43 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
                         e.getX() + tempSquare.getSideLength(), e.getY()+ tempSquare.getSideLength());
 
                 break;
+            case "triangle":
+                iTriangle tempTriangle = ((iTriangle) ishape);
+                double[] xCoordinates = tempTriangle.getxCoord();
+                double[] yCoordinates = tempTriangle.getyCoord();
+
+                double xDiff = e.getX() - xCoordinates[0];
+                double yDiff = e.getY() - yCoordinates[0];
+
+                ((Polygon) shape).getPoints().clear();
+                for (int i = 0; i < 3; i++)
+                {
+                    yCoordinates[i] += yDiff;
+                    xCoordinates[i] += xDiff;
+                    ((Polygon) shape).getPoints().addAll(xCoordinates[i], yCoordinates[i]);
+                }
+                break;
+            case "line":
+                iLine tempLine = ((iLine) ishape);
+                double xStart = tempLine.getxStart();
+                double yStart = tempLine.getyStart();
+                double xEnd = tempLine.getxEnd();
+                double yEnd = tempLine.getyEnd();
+
+                double xDiffLine = e.getX() - xStart;
+                double yDiffLine = e.getY() - yStart;
+
+                tempLine.setxStart(xStart += xDiffLine);
+                tempLine.setyStart(yStart += yDiffLine);
+                tempLine.setxEnd(xEnd += xDiffLine);
+                tempLine.setyEnd(yEnd += yDiffLine);
+
+                ((Line) shape).setStartX(xStart += xDiffLine);
+                ((Line) shape).setStartY(yStart += yDiffLine);
+
+                ((Line) shape).setEndX(xEnd += xDiffLine);
+                ((Line) shape).setEndY(yEnd += yDiffLine);
+                break;
             case "regularPolygon":
                 iPolygons tempRPoly = (iPolygons) ishape;
                 ((Polygon) shape).getPoints().clear();
@@ -62,6 +99,7 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
                         tempRPoly.getSideLength() ,tempRPoly.getNoOfSides());
                 ((Polygon) shape).getPoints().addAll(newPoints);
                 // TODO
+                break;
         }
         e.consume();
     }
