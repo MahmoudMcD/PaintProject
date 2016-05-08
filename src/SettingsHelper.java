@@ -42,6 +42,7 @@ public class SettingsHelper {
 
     // elements for new polygon
     private ChoiceBox<Integer> noOfSidesChoiceBox;
+    private TextField noOfSidesField;
     private TextField polygonColorCodeField, polygonSideLengthField;
     private Label polygonSideLengthLabel;
 
@@ -51,6 +52,8 @@ public class SettingsHelper {
         radiusLabel = new Label("Radius: ");
         colorCodeLabel = new Label("Color Code: ");
         radiusField = new TextField("10");
+        radiusField.setMinWidth(50);
+
         colorCodeField = new TextField("#000000");
 
 
@@ -60,7 +63,10 @@ public class SettingsHelper {
         ellipseColorCodeLabel = new Label("Color/Color Code: ");
 
         yRadiusField = new TextField("20");
+        yRadiusField.setMinWidth(50);
         xRadiusField = new TextField("10");
+        xRadiusField.setMinWidth(50);
+
         ellipsseColorCodeField = new TextField("Black");
 
 
@@ -71,6 +77,7 @@ public class SettingsHelper {
 
 
         rectangleWidthField = new TextField("20");
+        rectangleWidthField.setMinWidth(50);
         rectangleHeightField = new TextField("10");
         rectangleColorCodeField = new TextField("Black");
 
@@ -79,6 +86,7 @@ public class SettingsHelper {
         squareColorLabel = new Label("Color/Color Code: ");
 
         squareSideLengthField = new TextField("20");
+        squareSideLengthField.setMinWidth(50);
         squareColorField = new TextField("Black");
 
         // setting up the new triangle settings
@@ -91,11 +99,12 @@ public class SettingsHelper {
         lineStrokeWidthField = new TextField("3");
 
         // setting up the new polygon settings
-        noOfSidesChoiceBox = new ChoiceBox<>();
-        noOfSidesChoiceBox.setTooltip(new Tooltip("Choose the number of sides and side length then click on " +
+        //noOfSidesChoiceBox = new ChoiceBox<>();
+        noOfSidesField = new TextField("5");
+        noOfSidesField.setTooltip(new Tooltip("Choose the number of sides and side length then click on " +
                 "the center point"));
-        noOfSidesChoiceBox.getItems().addAll(5, 6, 7, 8);
-        noOfSidesChoiceBox.getSelectionModel().selectFirst();
+        //noOfSidesChoiceBox.getItems().addAll(5, 6, 7, 8);
+        //noOfSidesChoiceBox.getSelectionModel().selectFirst();
         polygonColorCodeField = new TextField("Black");
         polygonSideLengthLabel = new Label("Side Length : ");
         polygonSideLengthField = new TextField("10");
@@ -152,7 +161,7 @@ public class SettingsHelper {
             case 6:
                 //for polygon
                 newElements = new Node[5];
-                newElements[0] = noOfSidesChoiceBox;
+                newElements[0] = noOfSidesField;
                 newElements[1] = polygonSideLengthLabel;
                 newElements[2] = polygonSideLengthField;
                 newElements[3] = squareColorLabel;
@@ -197,13 +206,14 @@ public class SettingsHelper {
                 settings = new String[2];
                 settings[0] = squareSideLengthField.getText();
                 settings[1] = squareColorField.getText();
+                return settings;
             case 5:
                 settings = new String[1];
                 settings[0] = triangleColorCodeField.getText();
                 return settings;
             case 6:
                 settings = new String[3];
-                settings[0] = String.valueOf(noOfSidesChoiceBox.getSelectionModel().getSelectedItem());
+                settings[0] = noOfSidesField.getText();
                 settings[1] = polygonSideLengthField.getText();
                 settings[2] = polygonColorCodeField.getText();
                 return settings;
