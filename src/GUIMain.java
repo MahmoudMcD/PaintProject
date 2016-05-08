@@ -164,7 +164,7 @@ public class GUIMain extends Application{
                         circle.setCenterX(e.getX());
                         circle.setCenterY(e.getY());
                         drawApplication.addShape(circle);
-                        shapesRoot.getChildren().add(circle);
+                        setUpNewShape(circle);
                         break;
                     case 2:
                         settings = guiHelpers.getSettingsHelper().getSettings(2);
@@ -173,7 +173,7 @@ public class GUIMain extends Application{
                         ellipse.setCenterX(e.getX());
                         ellipse.setCenterY(e.getY());
                         drawApplication.addShape(ellipse);
-                        shapesRoot.getChildren().add(ellipse);
+                        setUpNewShape(ellipse);
                         break;
                     case 3:
                         settings = guiHelpers.getSettingsHelper().getSettings(3);
@@ -182,7 +182,7 @@ public class GUIMain extends Application{
                         rectangle.setX(e.getX());
                         rectangle.setY(e.getY());
                         drawApplication.addShape(rectangle);
-                        shapesRoot.getChildren().add(rectangle);
+                        setUpNewShape(rectangle);
                         break;
                     case 4:
                         settings = guiHelpers.getSettingsHelper().getSettings(4);
@@ -191,7 +191,7 @@ public class GUIMain extends Application{
                         square.setX(e.getX());
                         square.setY(e.getY());
                         drawApplication.addShape(square);
-                        shapesRoot.getChildren().add(square);
+                        setUpNewShape(square);
                         break;
 
                 }
