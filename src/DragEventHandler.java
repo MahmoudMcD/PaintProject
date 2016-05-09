@@ -4,6 +4,8 @@ import javafx.scene.shape.*;
 
 /**
  * Created by mahmoud on 5/8/2016.
+ * this class is used to move shapes either in the drag event of a shape
+ * or when a shape is copied to another place
  */
 public class DragEventHandler implements EventHandler<MouseEvent>{
 
@@ -81,16 +83,16 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
                 double xDiffLine = e.getX() - xStart;
                 double yDiffLine = e.getY() - yStart;
 
-                tempLine.setxStart(xStart += xDiffLine);
-                tempLine.setyStart(yStart += yDiffLine);
-                tempLine.setxEnd(xEnd += xDiffLine);
-                tempLine.setyEnd(yEnd += yDiffLine);
+                tempLine.setxStart(xStart + xDiffLine);
+                tempLine.setyStart(yStart + yDiffLine);
+                tempLine.setxEnd(xEnd + xDiffLine);
+                tempLine.setyEnd(yEnd + yDiffLine);
 
-                ((Line) shape).setStartX(xStart += xDiffLine);
-                ((Line) shape).setStartY(yStart += yDiffLine);
+                ((Line) shape).setStartX(xStart + xDiffLine);
+                ((Line) shape).setStartY(yStart + yDiffLine);
 
-                ((Line) shape).setEndX(xEnd += xDiffLine);
-                ((Line) shape).setEndY(yEnd += yDiffLine);
+                ((Line) shape).setEndX(xEnd + xDiffLine);
+                ((Line) shape).setEndY(yEnd + yDiffLine);
                 break;
             case "regularPolygon":
                 iPolygons tempRPoly = (iPolygons) ishape;

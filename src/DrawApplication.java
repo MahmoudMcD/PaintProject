@@ -44,6 +44,7 @@ public class DrawApplication {
         else if(shape instanceof Rectangle) {
             sl.setType("Rectangle");
             if (((Rectangle) shape).getWidth() == ((Rectangle) shape).getHeight()) {
+                sl.setType("square");
                 sl.setShape(shapeFactory.makeShape("square", ((Rectangle) shape).getWidth(), ((Rectangle) shape).getHeight()));
             } else
                 sl.setShape(shapeFactory.makeShape("rectangle", ((Rectangle) shape).getWidth(), ((Rectangle) shape).getHeight()));

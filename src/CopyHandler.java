@@ -2,20 +2,24 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.*;
 
 /**
- * Created by mahmo on 5/8/2016.
+ * Created by mahmoud on 5/8/2016.
  */
 public class CopyHandler /*implements EventHandler<ActionEvent>*/{
 
     private boolean shapeInHand;
     private ShapeLink toBeCopyed;
-    DrawApplication drawApplication;
+    private DrawApplication drawApplication;
     private MouseEvent mouseEvent;
     private GUIHelpers guiHelpers;
 
-
+    /* CopyHandler is created when the application starts
+     * it's job is to save the shape that's a copy
+     * and paste it where the user clicks paste
+     */
     public CopyHandler(DrawApplication drawApplication, GUIHelpers guiHelpers)
     {
         shapeInHand = false;
@@ -24,20 +28,26 @@ public class CopyHandler /*implements EventHandler<ActionEvent>*/{
         this.guiHelpers = guiHelpers;
     }
 
+    /* handleCopy creates a copy of the shape given  and save it
+     * in the toBeCopyed and set shapeInHand = true
+     */
     public void handleCopy(Node shape)
     {
         ShapeLink shapeLink = drawApplication.searchFor((Shape) shape);
         iShape newiShape = shapeLink.getShape().copy();
+
         Shape newShape = copyShape((Shape) shape);
 
         shapeInHand = true;
         toBeCopyed = new ShapeLink();
+
         toBeCopyed.setType(shapeLink.getType());
         toBeCopyed.setShape(newiShape);
         toBeCopyed.setShapeFX(newShape);
-        System.out.println(toBeCopyed);
+
     }
 
+    // Copy methods
     private Shape copyShape(Shape shape)
     {
         if (shape instanceof Circle)
@@ -60,30 +70,40 @@ public class CopyHandler /*implements EventHandler<ActionEvent>*/{
 
     private Circle copyCircle(Circle shape)
     {
-       return new Circle(shape.getRadius());
+        Circle newCircle = new Circle(shape.getRadius());
+        newCircle.setFill(shape.getFill());
+       return newCircle;
     }
 
     private Ellipse copyEllipse(Ellipse shape)
     {
-        return new Ellipse(shape.getRadiusX(), shape.getRadiusY());
+        Ellipse newEllipse = new Ellipse(shape.getRadiusX(), shape.getRadiusY());
+        newEllipse.setFill(shape.getFill());
+        return newEllipse;
     }
 
     private Rectangle copyRectangle(Rectangle shape)
     {
-        return new Rectangle(shape.getWidth(), shape.getHeight());
+        Rectangle newRectangle = new Rectangle(shape.getWidth(), shape.getHeight());
+        newRectangle.setFill(shape.getFill());
+        return newRectangle;
     }
 
     private Polygon copyPolygon(Polygon shape)
     {
         Polygon newPolygon = new Polygon();
+        newPolygon.setFill(shape.getFill());
         newPolygon.getPoints().addAll(shape.getPoints());
         return newPolygon;
     }
 
     private Line copyLine (Line shape)
     {
-        return new Line(shape.getStartX(), shape.getStartY(),
+        Line newLine = new Line(shape.getStartX(), shape.getStartY(),
                 shape.getEndX(), shape.getEndY());
+        newLine.setFill(shape.getFill());
+        newLine.setStrokeWidth(shape.getStrokeWidth());
+        return newLine;
     }
 
     public boolean getShapeInHand() {
@@ -94,10 +114,13 @@ public class CopyHandler /*implements EventHandler<ActionEvent>*/{
         return toBeCopyed;
     }
 
+    /* when handlePaste is called a dragEventHandler is created to move
+     * the copy to the place where it's meant to be placed then return
+     * the new shape set with the new position
+     */
     public Shape handlePaste()
     {
-        System.out.println(toBeCopyed);
-        System.out.println(toBeCopyed.getShapeFX());
+
         DragEventHandler dragEventHandler = new DragEventHandler(toBeCopyed.getType(),
                 (Shape) toBeCopyed.getShapeFX(), toBeCopyed.getShape(), guiHelpers);
 
