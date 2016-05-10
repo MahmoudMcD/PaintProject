@@ -43,12 +43,14 @@ public class DrawApplication {
                     ((Ellipse) shape).getRadiusX(), ((Ellipse) shape).getCenterY()));
         }
         else if(shape instanceof Rectangle) {
-            sl.setType("Rectangle");
+
             if (((Rectangle) shape).getWidth() == ((Rectangle) shape).getHeight()) {
-                sl.setType("square");
+                sl.setType("Square");
                 sl.setShape(shapeFactory.makeShape("square", ((Rectangle) shape).getWidth(), ((Rectangle) shape).getHeight()));
-            } else
+            } else{
+                sl.setType("Rectangle");
                 sl.setShape(shapeFactory.makeShape("rectangle", ((Rectangle) shape).getWidth(), ((Rectangle) shape).getHeight()));
+            }
         }
         else if(shape instanceof Polygon) {
             if (((Polygon) shape).getPoints().toArray().length == 6) {

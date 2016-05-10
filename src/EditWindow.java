@@ -67,7 +67,7 @@ public class EditWindow{
                 settings = settingsHelper.getSettingsLayout(3);
                 ((TextField) settings[1]).setText(String.valueOf(((Rectangle) shape).getWidth()));
                 ((TextField) settings[3]).setText(String.valueOf(((Rectangle) shape).getHeight()));
-                ((TextField) settings[4]).setText(((Rectangle) shape).getFill().toString());
+                ((TextField) settings[5]).setText(((Rectangle) shape).getFill().toString());
             }
         }
 
