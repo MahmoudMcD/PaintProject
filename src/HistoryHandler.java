@@ -66,6 +66,11 @@ public class HistoryHandler {
 
     public void redo()
     {
+        /* if next is sentinel that means that there's no more actions to redo
+         * else set the current to the next and the next to next.getPrev() to move
+         * back in the chain of actions then set the prev to current.getNext()
+         * redo current to redo the action
+         */
         if (next != mementos.getSentinel())
         {
             current = next;

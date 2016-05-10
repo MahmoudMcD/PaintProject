@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de268b3b-ebd0-47da-988e-20c6b8b5670c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HistoryHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Memento.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MementoLinkedList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/CopyHandler.class" afterPath="$PROJECT_DIR$/out/production/Paint/CopyHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/DrawApplication.class" afterPath="$PROJECT_DIR$/out/production/Paint/DrawApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/GUIMain.class" afterPath="$PROJECT_DIR$/out/production/Paint/GUIMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/Test.class" afterPath="$PROJECT_DIR$/out/production/Paint/Test.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DrawApplication.java" afterPath="$PROJECT_DIR$/src/DrawApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUIMain.java" afterPath="$PROJECT_DIR$/src/GUIMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="$PROJECT_DIR$/src/Test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HistoryHandler.java" afterPath="$PROJECT_DIR$/src/HistoryHandler.java" />
     </list>
     <ignored path="Paint.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,8 +52,8 @@
           <file leaf-file-name="HistoryHandler.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/HistoryHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="351">
-                  <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+                <state relative-caret-position="215">
+                  <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -218,8 +209,8 @@
         <option value="$PROJECT_DIR$/src/Memento.java" />
         <option value="$PROJECT_DIR$/src/DrawApplication.java" />
         <option value="$PROJECT_DIR$/src/GUIMain.java" />
-        <option value="$PROJECT_DIR$/src/HistoryHandler.java" />
         <option value="$PROJECT_DIR$/src/MementoLinkedList.java" />
+        <option value="$PROJECT_DIR$/src/HistoryHandler.java" />
       </list>
     </option>
   </component>
@@ -567,8 +558,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.50292826" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28968903" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28968903" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.49707174" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -626,7 +617,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/HistoryHandler.java</url>
-          <line>68</line>
+          <line>73</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
@@ -982,8 +973,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HistoryHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="215">
+          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
