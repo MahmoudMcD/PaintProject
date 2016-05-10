@@ -53,6 +53,9 @@ public class Test extends Application
         menuBar.getMenus().add(file);
 
         Rectangle clip = new Rectangle(1000, 700);
+
+        System.out.println(Integer.toHexString(System.identityHashCode(clip)));
+
         clip.setLayoutX(0);
         clip.setLayoutY(0);
         clip.setFill(Paint.valueOf("Grey"));
