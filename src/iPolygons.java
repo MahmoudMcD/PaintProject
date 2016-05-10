@@ -17,17 +17,18 @@ public class iPolygons extends iShape {
         //TODO
     }
 
-    //TODO Fix this
+    //TODO Fix this -> howa ana 3adltha bs check tany w law s7 8yar b2a almove bnafs alconcept
     @Override
     public void resizeShape(double... newInfo) {
         if (newInfo.length != noOfSides*2)
             throw new RuntimeException("Wrong Coordinates number "); //TODO
 
-        for(int i = 0; i < noOfSides; i++)
+        for(int i = 0; i < noOfSides; i+=2)
         {
-            xCoord[i] = newInfo[i];
-            yCoord[i] = newInfo[i+1];
+            xCoord[i/2] = newInfo[i];
+            yCoord[i/2] = newInfo[i+1];
         }
+        this.sideLength = MathHelper.calculateSideLength(xCoord,yCoord);
     }
 
     @Override

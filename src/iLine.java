@@ -23,9 +23,7 @@ public class iLine extends iShape {
 
     @Override
     public void resizeShape(double... newInfo) {
-        double lineLength = newInfo[0];
-        xEnd = xStart + lineLength*Math.cos(getRotationAngle());
-        yEnd = yStart + lineLength*Math.sin(getRotationAngle());
+        this.strokeWidth = newInfo[0];
     }
 
     @Override

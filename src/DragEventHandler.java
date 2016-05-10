@@ -40,6 +40,7 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
             case "rectangle":
                 ((Rectangle) shape).setX(e.getX());
                 ((Rectangle) shape).setY(e.getY());
+                //TODO: fix this -> bydrab lma t drag w by2ol mynf3sh t cast iSquare l iRectangle hna blazabt
                 iRectangle temp = (iRectangle) ishape;
                 temp.resizeShape(e.getX(), e.getY(),
                         e.getX() + temp.getWidth(), e.getY(),

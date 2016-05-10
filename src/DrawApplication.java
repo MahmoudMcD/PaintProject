@@ -4,6 +4,7 @@
 
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
@@ -43,12 +44,14 @@ public class DrawApplication {
                     ((Ellipse) shape).getRadiusX(), ((Ellipse) shape).getCenterY()));
         }
         else if(shape instanceof Rectangle) {
-            sl.setType("Rectangle");
+
             if (((Rectangle) shape).getWidth() == ((Rectangle) shape).getHeight()) {
-                sl.setType("square");
+                sl.setType("Square");
                 sl.setShape(shapeFactory.makeShape("square", ((Rectangle) shape).getWidth(), ((Rectangle) shape).getHeight()));
-            } else
+            } else{
+                sl.setType("Rectangle");
                 sl.setShape(shapeFactory.makeShape("rectangle", ((Rectangle) shape).getWidth(), ((Rectangle) shape).getHeight()));
+            }
         }
         else if(shape instanceof Polygon) {
             if (((Polygon) shape).getPoints().toArray().length == 6) {
@@ -61,16 +64,20 @@ public class DrawApplication {
                     yCoord[i / 2] = (double) ((Polygon) shape).getPoints().toArray()[i + 1];
                 }
                 sl.setShape(shapeFactory.makeShape("triangle", xCoord, yCoord));
+                ((iPolygons) sl.getShape()).setNoOfSides(3);
             } else {
                 sl.setType("Polygon");
                 int length = ((Polygon) shape).getPoints().toArray().length;
-                double[] xCoord = new double[3];
-                double[] yCoord = new double[3];
+                double[] xCoord = new double[length/2+1];
+                double[] yCoord = new double[length/2+1];
                 for (int i = 0; i < length; i += 2) {
                     xCoord[i / 2] = (double) ((Polygon) shape).getPoints().toArray()[i];
                     yCoord[i / 2] = (double) ((Polygon) shape).getPoints().toArray()[i + 1];
                 }
                 sl.setShape(shapeFactory.makeShape("polygon", xCoord, yCoord));
+                ((iPolygons) sl.getShape()).setNoOfSides(length/2);
+                double sideLength = MathHelper.calculateSideLength(((Polygon) sl.getShapeFX()).getPoints());
+                ((iPolygons) sl.getShape()).setSideLength(sideLength);
             }
         }
         else if(shape instanceof Line) {
@@ -82,7 +89,7 @@ public class DrawApplication {
             throw new RuntimeException("shape not found !");
         }
 
-
+        sl.getShape().setFillColor(Color.valueOf(((Shape) shape).getFill().toString()));
         shapes.add(sl);
         System.out.println(shapes.get(0).getShape());
     }
@@ -123,8 +130,7 @@ public class DrawApplication {
         }
            else if(shape instanceof Line) {
             temp.getShape().resizeShape(moreInfo);
-            ((Line) temp.getShapeFX()).setEndX(((iLine) temp.getShape()).getxEnd());
-            ((Line) temp.getShapeFX()).setEndY(((iLine) temp.getShape()).getyEnd());
+            ((Line) temp.getShapeFX()).setStrokeWidth(moreInfo[0]);
         }
         else if(shape instanceof Polygon) {
             if (((Polygon) temp.getShapeFX()).getPoints().toArray().length == 6) {
@@ -136,6 +142,7 @@ public class DrawApplication {
                 }
                 ((Polygon) temp.getShapeFX()).getPoints().clear();
                 ((Polygon) temp.getShapeFX()).getPoints().addAll(ar);
+                ((iPolygons) temp.getShape()).setNoOfSides(moreInfo.length/2);
                 temp.getShape().resizeShape(moreInfo);
             }
         }
