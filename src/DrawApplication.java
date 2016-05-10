@@ -45,6 +45,7 @@ public class DrawApplication {
         else if(shape instanceof Rectangle) {
             sl.setType("Rectangle");
             if (((Rectangle) shape).getWidth() == ((Rectangle) shape).getHeight()) {
+                sl.setType("square");
                 sl.setShape(shapeFactory.makeShape("square", ((Rectangle) shape).getWidth(), ((Rectangle) shape).getHeight()));
             } else
                 sl.setShape(shapeFactory.makeShape("rectangle", ((Rectangle) shape).getWidth(), ((Rectangle) shape).getHeight()));
@@ -261,5 +262,10 @@ public class DrawApplication {
                 return shapeLink;
         }
         return null;
+    }
+
+    public void addShapeLink(ShapeLink shapeLink)
+    {
+        shapes.add(shapeLink);
     }
 }

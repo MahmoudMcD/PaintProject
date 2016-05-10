@@ -32,4 +32,5 @@ public class iRectangle extends iPolygons {
     public void setHeight(double height) {
         this.height = height;
     }
+
 }

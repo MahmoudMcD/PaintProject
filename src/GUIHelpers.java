@@ -38,7 +38,7 @@ public class GUIHelpers {
     private int desiredNumberOfPoints = 0;
     private Stack<Double> points;
 
-
+    // for copying and pasting shapes
 
 
     public GUIHelpers()
@@ -240,4 +240,6 @@ public class GUIHelpers {
             points = new Stack<>();
         }
     }
+
+
 }

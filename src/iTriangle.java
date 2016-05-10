@@ -29,7 +29,7 @@ public class iTriangle extends iPolygons {
     }
 
     @Override
-    public String toString(){
-        return "sides: "+ sideLengths[0] + "\n" + sideLengths[1] + "\n" + sideLengths[2] + "\n";
+    public String toString() {
+        return "sides: " + sideLengths[0] + "\n" + sideLengths[1] + "\n" + sideLengths[2] + "\n";
     }
 }

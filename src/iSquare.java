@@ -25,4 +25,5 @@ public class iSquare extends iPolygons {
     public void setSideLength(double sideLength) {
         this.sideLength = sideLength;
     }
+
 }
