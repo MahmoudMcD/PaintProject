@@ -1,32 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de268b3b-ebd0-47da-988e-20c6b8b5670c" name="Default" comment="Edit Window">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paint/DragEventHandler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paint/MathHelper.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DragEventHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MathHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/DrawApplication.class" afterPath="$PROJECT_DIR$/out/production/Paint/DrawApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/EditWindow.class" afterPath="$PROJECT_DIR$/out/production/Paint/EditWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/GUIHelpers.class" afterPath="$PROJECT_DIR$/out/production/Paint/GUIHelpers.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/GUIMain.class" afterPath="$PROJECT_DIR$/out/production/Paint/GUIMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/SettingsHelper.class" afterPath="$PROJECT_DIR$/out/production/Paint/SettingsHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/Test$DragListener.class" afterPath="$PROJECT_DIR$/out/production/Paint/Test$DragListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/Test.class" afterPath="$PROJECT_DIR$/out/production/Paint/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iPolygons.class" afterPath="$PROJECT_DIR$/out/production/Paint/iPolygons.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iShape.class" afterPath="$PROJECT_DIR$/out/production/Paint/iShape.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iTriangle.class" afterPath="$PROJECT_DIR$/out/production/Paint/iTriangle.class" />
+    <list default="true" id="de268b3b-ebd0-47da-988e-20c6b8b5670c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DrawApplication.java" afterPath="$PROJECT_DIR$/src/DrawApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EditWindow.java" afterPath="$PROJECT_DIR$/src/EditWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUIHelpers.java" afterPath="$PROJECT_DIR$/src/GUIHelpers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUIMain.java" afterPath="$PROJECT_DIR$/src/GUIMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SettingsHelper.java" afterPath="$PROJECT_DIR$/src/SettingsHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="$PROJECT_DIR$/src/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iLine.java" afterPath="$PROJECT_DIR$/src/iLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iPolygons.java" afterPath="$PROJECT_DIR$/src/iPolygons.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iShape.java" afterPath="$PROJECT_DIR$/src/iShape.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iTriangle.java" afterPath="$PROJECT_DIR$/src/iTriangle.java" />
     </list>
     <ignored path="Paint.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/GUIMain.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="224" column="105" selection-start-line="224" selection-start-column="105" selection-end-line="224" selection-end-column="105" />
+              <caret line="257" column="47" selection-start-line="257" selection-start-column="47" selection-end-line="257" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,8 +64,8 @@
       <file leaf-file-name="ScrollHandle.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ScrollHandle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3317757">
-              <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.93428063">
+              <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -697,16 +673,23 @@
       <created>1462821901145</created>
       <option name="number" value="Default" />
       <updated>1462821901145</updated>
-      <workItem from="1462821907367" duration="18540000" />
+      <workItem from="1462821907367" duration="19543000" />
     </task>
+    <task id="LOCAL-00001" summary="ScrollHandler,Resize almost done">
+      <created>1462843030067</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1462843030067</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27051000" />
+    <option name="totallyTimeSpent" value="28054000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -716,7 +699,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29021373" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.49707174" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.49707174" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17631297" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -745,6 +728,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ScrollHandler,Resize almost done" />
+    <option name="LAST_COMMIT_MESSAGE" value="ScrollHandler,Resize almost done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -790,8 +777,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
           <folding>
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1004,8 +991,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="93" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
           <folding>
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#817#818#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1044,6 +1031,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,8 +1070,8 @@
           <folding>
             <element signature="e#504#505#0" expanded="true" />
             <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1148,7 +1136,7 @@
     <entry file="file://$PROJECT_DIR$/src/GUIMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="224" column="105" selection-start-line="224" selection-start-column="105" selection-end-line="224" selection-end-column="105" />
+          <caret line="257" column="47" selection-start-line="257" selection-start-column="47" selection-end-line="257" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1177,8 +1165,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ScrollHandle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3317757">
-          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.93428063">
+          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
