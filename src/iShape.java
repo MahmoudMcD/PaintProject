@@ -1,11 +1,12 @@
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 /**
  * Created by mahmoud on 4/26/2016.
  */
 public abstract class iShape implements Cloneable{
 
-    private Color fillColor;
+    private Paint fillColor;
     private double rotationAngle;
 
 
@@ -33,7 +34,7 @@ public abstract class iShape implements Cloneable{
          return newShape;
     }
 
-    public Color getFillColor() { return fillColor; }
+    public Paint getFillColor() { return fillColor; }
 
     public double getRotationAngle() {return rotationAngle;}
 

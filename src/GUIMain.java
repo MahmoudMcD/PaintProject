@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
@@ -148,6 +149,7 @@ public class GUIMain extends Application{
                                 ((Line) shape).setEndX(points.pop());
                                 ((Line) shape).setStartY(points.pop());
                                 ((Line) shape).setStartX(points.pop());
+                                shape.setStroke(Paint.valueOf(settings[0]));
                                 shape.setFill(Paint.valueOf(settings[0]));
                                 drawApplication.addShape(shape);
                                 setUpNewShape(shape);
@@ -207,6 +209,7 @@ public class GUIMain extends Application{
                             rectangle.setY(e.getY());
                             drawApplication.addShape(rectangle);
                             setUpNewShape(rectangle);
+
                             break;
                         case 4:
                             settings = guiHelpers.getSettingsHelper().getSettings(4);
@@ -217,7 +220,17 @@ public class GUIMain extends Application{
                             drawApplication.addShape(square);
                             setUpNewShape(square);
                             break;
-
+                        case 6:
+                            /*TODO: fix this -> shoof MathHelper 3shan lma b7seb alsideLength bl fn aly ana 3amlha bytla3 nos aly bt7sbo blzabt
+                             * grab trsem wa7ed 3ady b side length b3den dos edit hytla3lak aly ana b7sbo
+                             */
+                            settings = guiHelpers.getSettingsHelper().getSettings(6);
+                            Polygon polygon = new Polygon();
+                            polygon.getPoints().addAll(MathHelper.calculatePolygonVertices(e.getX(), e.getY(),
+                                    Double.valueOf(settings[1]), Integer.valueOf(settings[0])));
+                            polygon.setFill(Paint.valueOf(settings[2]));
+                            drawApplication.addShape(polygon);
+                            setUpNewShape(polygon);
                     }
                 }
             }
@@ -241,11 +254,17 @@ public class GUIMain extends Application{
     public void setUpNewShape(Shape shape)
     {
         shapesRoot.getChildren().add(shape);
+
         shape.setOnMouseClicked(e -> {
             // if the user right-clicked the shape show the context menu
             if (e.getButton() == MouseButton.SECONDARY)
                 getContextMenu().show(shape, e.getX(), e.getY());
         });
+
+        ShapeLink shapeLink = drawApplication.searchFor(shape);
+
+        // handling the drag to move the shape
+        shape.setOnMouseDragged(new DragEventHandler(shapeLink.getType(), shape, shapeLink.getShape(), guiHelpers));
     }
 
     public ContextMenu getContextMenu() {
