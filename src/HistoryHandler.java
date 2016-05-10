@@ -1,4 +1,7 @@
-import javafx.scene.shape.Shape;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.*;
+import org.w3c.dom.css.Rect;
 
 import java.util.ArrayList;
 
@@ -34,7 +37,22 @@ public class HistoryHandler {
         prev = current;
         current = mementos.addMemento(message, actionShapeLink,  type,
                 moreInfo);
+        System.out.println(current.getMoreInfo().toString());
     }
+
+
+    public void addMemento(String type, ShapeLink actionShapeLink, String[] newValues, String[] oldValues)
+    {
+        String[] mementoValue = new String[(newValues.length * 2) + 1];
+        mementoValue[0] = type;
+        for (int i = 0, m = 1; i < newValues.length; i++, m+=2)
+        {
+            mementoValue[m] = oldValues[i];
+            mementoValue[m + 1] = newValues[i];
+        }
+        addMemento("A "+type+" was edited", actionShapeLink, 2, mementoValue);
+    }
+
 
     public void undo()
     {
@@ -93,6 +111,10 @@ public class HistoryHandler {
             case 1:
                 drawApplication.drawShape(action.getActionShapeLink());
                 break;
+            // This case means that the action was edit action
+            case 2:
+                applyChanges(1, action);
+                break;
         }
     }
 
@@ -106,7 +128,116 @@ public class HistoryHandler {
             case 1:
                 drawApplication.deleteWithoutMemento((Shape) action.getActionShapeLink().getShapeFX());
                 break;
+            case 2:
+                applyChanges(2, action);
+                break;
         }
     }
 
+    private void applyChanges(int start, Memento action)
+    {
+        Shape shape = (Shape) action.getActionShapeLink().getShapeFX();
+        iShape ishape = action.getActionShapeLink().getShape();
+        String[] info = action.getMoreInfo();
+        switch (info[0].toLowerCase())
+        {
+            case "circle":
+                if (info.length != 5)
+                    throw new RuntimeException("Invalid No. of values");
+                ((Circle) shape).setRadius(Double.valueOf(info[start]));
+                shape.setFill(Paint.valueOf(info[start+2]));
+                (ishape).resizeShape(Double.valueOf(info[start]));
+                ishape.setFillColor(Color.valueOf(info[start + 2]));
+                break;
+            case "ellipse":
+                if (info.length != 7)
+                    throw new RuntimeException("Invalid No. of values");
+                ((Ellipse) shape).setRadiusX(Double.valueOf(info[start]));
+                ((Ellipse) shape).setRadiusY(Double.valueOf(info[start + 2]));
+                shape.setFill(Paint.valueOf(info[start + 4]));
+                ishape.resizeShape(Double.valueOf(info[start]), Double.valueOf(info[start + 2]));
+                ishape.setFillColor(Color.valueOf(info[start + 4]));
+                break;
+            case "rectangle":
+                if (info.length != 7)
+                    throw new RuntimeException("Invalid No. of values");
+                ((Rectangle) shape).setWidth(Double.valueOf(info[start]));
+                ((Rectangle) shape).setHeight(Double.valueOf(info[start+2]));
+                shape.setFill(Paint.valueOf(info[start + 4]));
+                ishape.resizeShape(Double.valueOf(info[start]), Double.valueOf(info[start+2]));
+                ishape.setFillColor(Color.valueOf(info[start + 4]));
+                break;
+            case "square":
+                if (info.length != 5)
+                    throw new RuntimeException("Invalid No. of values");
+                ((Rectangle) shape).setHeight(Double.valueOf(info[start]));
+                ((Rectangle) shape).setWidth(Double.valueOf(info[start]));
+                shape.setFill(Paint.valueOf(info[start + 2]));
+                ishape.resizeShape(Double.valueOf(info[start]), Double.valueOf(info[start]));
+                ishape.setFillColor(Color.valueOf(info[start + 2]));
+                break;
+            case "triangle":
+                if (info.length != 3)
+                    throw new RuntimeException("Invalud No. of Values");
+                shape.setFill(Paint.valueOf(info[start]));
+                ishape.setFillColor(Color.valueOf(info[start]));
+                break;
+            case "line":
+                if (info.length != 5)
+                    throw new RuntimeException("Invalid No. of values");
+                shape.setStrokeWidth(Double.valueOf(info[start]));
+                shape.setFill(Paint.valueOf(info[start + 2]));
+                ishape.resizeShape(Double.valueOf(info[start]));
+                ishape.setFillColor(Color.valueOf(info[start + 2]));
+                break;
+        }
+    }
+
+
+    public String[] setOldValuesArray(String type, String[] newValues, Shape shape)
+    {
+        // TODO return when the rotation angle is here
+        String[] oldValues = new String[newValues.length + 1];
+        //String[] oldValues = new String[newValues.length];
+        switch (type)
+        {
+            case "circle":
+                double circleRadius = ((Circle) shape).getRadius();
+                Paint circleColor = ((Circle) shape).getFill();
+                oldValues[0] = String.valueOf(circleRadius);
+                oldValues[1] = String.valueOf(circleColor);
+                break;
+            case "ellipse":
+                double ellipseXRadius = ((Ellipse) shape).getRadiusX();
+                double ellipseYRadius = ((Ellipse) shape).getRadiusY();
+                Paint ellipseColor = shape.getFill();
+                oldValues[0] = String.valueOf(ellipseXRadius);
+                oldValues[1] = String.valueOf(ellipseYRadius);
+                oldValues[2] = String.valueOf(ellipseColor);
+                break;
+            case "square":
+                double squareSideLength = ((Rectangle) shape).getWidth();
+                Paint squareColor = shape.getFill();
+                oldValues[0] = String.valueOf(squareSideLength);
+                oldValues[1] = String.valueOf(squareColor);
+                break;
+            case "rectangle":
+                double rectangleWidth = ((Rectangle) shape).getWidth();
+                double rectangleHeight = ((Rectangle) shape).getHeight();
+                Paint rectangleColor = shape.getFill();
+                oldValues[0] = String.valueOf(rectangleWidth);
+                oldValues[1] = String.valueOf(rectangleHeight);
+                oldValues[2] = String.valueOf(rectangleColor);
+                break;
+            case "triangle":
+                Paint triangleColor = shape.getFill();
+                oldValues[0] = String.valueOf(triangleColor);
+                break;
+            case "polygon":
+               // TODO;
+                break;
+        }
+
+        return oldValues;
+    }
 }

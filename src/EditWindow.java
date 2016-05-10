@@ -126,34 +126,53 @@ public class EditWindow{
 
     public void resize(){
         String[] ar = null,polyString = null;
+        String type;
+        String[] oldValues; // for the history memento
+
         int flagPoly=0;
         Double[] vertices=null;
         if(shape instanceof Circle){
             ar = settingsHelper.getSettings(1);
+            type = "circle";
+            oldValues = drawApplication.getHistoryHandler().setOldValuesArray(type, ar, ((Shape) shape));
         }
         else if(shape instanceof Ellipse){
             ar = settingsHelper.getSettings(2);
+            type = "ellipse";
+            oldValues = drawApplication.getHistoryHandler().setOldValuesArray(type, ar, ((Shape) shape));
         }
         else if(shape instanceof Rectangle){
-            if(((Rectangle) shape).getWidth() == ((Rectangle) shape).getHeight())
+            if(((Rectangle) shape).getWidth() == ((Rectangle) shape).getHeight()) {
                 ar = settingsHelper.getSettings(4);
-            else
+                type = "square";
+                oldValues = drawApplication.getHistoryHandler().setOldValuesArray(type, ar, ((Shape) shape));
+            }
+            else {
                 ar = settingsHelper.getSettings(3);
+                type = "rectangle";
+                oldValues = drawApplication.getHistoryHandler().setOldValuesArray(type, ar, ((Shape) shape));
+            }
         }
 
         else if(shape instanceof Polygon){
-            if(((Polygon) shape).getPoints().toArray().length == 6)
+            if(((Polygon) shape).getPoints().toArray().length == 6) {
                 ar = settingsHelper.getSettings(5);
-
+                type = "triangle";
+                oldValues = drawApplication.getHistoryHandler().setOldValuesArray(type, ar, ((Shape) shape));
+            }
             else {
                 flagPoly =1;
                 polyString = settingsHelper.getSettings(6);
+
                 int No = Integer.parseInt(polyString[0]);
                 double sideLength = Double.valueOf(polyString[1]);
 
                 double centerX =MathHelper.centerFromVertices(((Polygon) shape).getPoints())[0];
                 double centerY =MathHelper.centerFromVertices(((Polygon) shape).getPoints())[1];
                 vertices = MathHelper.calculatePolygonVertices(centerX,centerY,sideLength,No);
+                type = "polygon";
+                oldValues = drawApplication.getHistoryHandler().setOldValuesArray(type, ar, ((Shape) shape));
+
             }
         }
 
@@ -163,6 +182,9 @@ public class EditWindow{
             ar[0] = ar1[1];
             ar[1] = ar1[0];
             ((Line) shapeLink.getShapeFX()).setStroke(Paint.valueOf(ar[ar.length - 1]));
+            type = "line";
+            oldValues = drawApplication.getHistoryHandler().setOldValuesArray(type, ar, ((Shape) shape));
+
         }
         else
             throw new RuntimeException(" Shape Not Found ! ");
@@ -188,6 +210,10 @@ public class EditWindow{
             ((Shape) shapeLink.getShapeFX()).setFill(Paint.valueOf(polyString[2]));
             shapeLink.getShape().setFillColor(Color.valueOf(polyString[2]));
         }
+
+        drawApplication.getHistoryHandler().addMemento(type, shapeLink, ar, oldValues);
+        //drawApplication.getHistoryHandler().addMemento("A "+type+" was edited", shapeLink,
+        //        2, mementoInfo);
     }
 
 }
