@@ -23,6 +23,7 @@ public class DrawApplication {
     int status;
     ArrayList<ShapeLink> shapes = new ArrayList<>();
     Pane root = new Pane();
+    HistoryHandler historyHandler = new HistoryHandler(this);
 
     public static DrawApplication  getInstance(){
         if(instance == null){
@@ -100,14 +101,6 @@ public class DrawApplication {
     }
 
 
-    void removeShape(Node shape){
-        for(ShapeLink sl : shapes){
-            if(shape.equals(sl.getShapeFX())) {
-                shapes.remove(sl);
-                break;
-            }
-        }
-    }
 
 
     /*
@@ -288,4 +281,41 @@ public class DrawApplication {
     {
         shapes.add(shapeLink);
     }
+
+    public void deleteShape(Shape shape)
+    {
+        root.getChildren().remove(shape);
+        for (ShapeLink shapeLink: shapes)
+        {
+            if (shapeLink.getShapeFX() == shape)
+            {
+                String message = "A "+shapeLink.getType()+" deleted";
+                historyHandler.addMemento(message, shapeLink, 1);
+                shapes.remove(shapeLink);
+                break;
+            }
+        }
+    }
+
+    public void deleteWithoutMemento(Shape shape)
+    {
+        root.getChildren().remove(shape);
+        for (ShapeLink shapeLink: shapes)
+        {
+            if (shapeLink.getShapeFX() == shape)
+            {
+                String message = "A "+shapeLink.getType()+" deleted";
+                shapes.remove(shapeLink);
+                break;
+            }
+        }
+    }
+
+    public void drawShape(ShapeLink shapeLink)
+    {
+        root.getChildren().add(shapeLink.getShapeFX());
+        addShapeLink(shapeLink);
+    }
+
+    public HistoryHandler getHistoryHandler() {return historyHandler;}
 }

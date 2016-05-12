@@ -52,6 +52,8 @@ public class GUIMain extends Application{
     // settings for the main context menu
     private ContextMenu mainContextMenu;
     private MenuItem pasteMenuItem;
+    private MenuItem undoMenuItem;
+    private MenuItem redoMenuItem;
 
     private CopyHandler copyHandler;
 
@@ -125,7 +127,8 @@ public class GUIMain extends Application{
 
         deleteMenuItem = new MenuItem("Delete");
         deleteMenuItem.setOnAction(e -> {
-
+            // Deleting the shape
+            drawApplication.deleteShape((Shape) contextMenu.getOwnerNode());
         });
         contextMenu.getItems().addAll(editMenuItem, copyMenuItem, deleteMenuItem);
 
@@ -137,7 +140,14 @@ public class GUIMain extends Application{
             Shape newShape = copyHandler.handlePaste();
             setUpNewShape(newShape);
         });
-        mainContextMenu.getItems().addAll(pasteMenuItem);
+
+        undoMenuItem = new MenuItem("Undo");
+        undoMenuItem.setOnAction(e -> drawApplication.getHistoryHandler().undo());
+
+        redoMenuItem = new MenuItem("Redo");
+        redoMenuItem.setOnAction(e -> drawApplication.getHistoryHandler().redo());
+
+        mainContextMenu.getItems().addAll(pasteMenuItem, undoMenuItem, redoMenuItem);
 
 
         //for handling all possible mouse events for free hand sketching
@@ -316,7 +326,8 @@ public class GUIMain extends Application{
         });
 
         ShapeLink shapeLink = drawApplication.searchFor(shape);
-
+        drawApplication.getHistoryHandler().addMemento("A "+shape.getClass().toString()+" Added",
+                shapeLink, 0);
         // handling the drag to move the shape
         shape.setOnMouseDragged(new DragEventHandler(shapeLink.getType(), shape, shapeLink.getShape(), guiHelpers));
     }
