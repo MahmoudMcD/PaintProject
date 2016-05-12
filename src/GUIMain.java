@@ -333,7 +333,29 @@ public class GUIMain extends Application{
         drawApplication.getHistoryHandler().addMemento("A "+shape.getClass().toString()+" Added",
                 shapeLink, 0);
         // handling the drag to move the shape
-        shape.setOnMouseDragged(new DragEventHandler(shapeLink.getType(), shape, shapeLink.getShape(), guiHelpers));
+        DragEventHandler newDragEventHandler = new DragEventHandler(shapeLink.getType(),
+                shape, shapeLink.getShape(), guiHelpers);
+
+        shape.setOnMousePressed(e -> {
+            System.out.println("In");
+            newDragEventHandler.setInitialPositionX(String.valueOf(e.getX()));
+            newDragEventHandler.setInitialPositionY(String.valueOf(e.getY()));
+            e.consume();
+        });
+
+        shape.setOnMouseDragged(newDragEventHandler);
+
+        shape.setOnMouseReleased(e -> {
+            if (!String.valueOf(e.getX()).equals(newDragEventHandler.getInitialPositionX()) ||
+                    !String.valueOf(e.getY()).equals(newDragEventHandler.getInitialPositionY()))
+            {
+                System.out.println("Out");
+                newDragEventHandler.registerMovement(String.valueOf(e.getX()), String.valueOf(e.getY()),
+                        drawApplication.getHistoryHandler(), shapeLink);
+            }
+            e.consume();
+        });
+        //shape.setOnMouseDragged(new DragEventHandler(shapeLink.getType(), shape, shapeLink.getShape(), guiHelpers));
     }
 
 

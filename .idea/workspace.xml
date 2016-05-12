@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de268b3b-ebd0-47da-988e-20c6b8b5670c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paint/FreeHand.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paint/Test$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paint/images/sketch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/sketch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FreeHand.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Paint/Test$DragListener.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/DrawApplication.class" afterPath="$PROJECT_DIR$/out/production/Paint/DrawApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/EditWindow.class" afterPath="$PROJECT_DIR$/out/production/Paint/EditWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/EllipticalShapes.class" afterPath="$PROJECT_DIR$/out/production/Paint/EllipticalShapes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/GUIHelpers.class" afterPath="$PROJECT_DIR$/out/production/Paint/GUIHelpers.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/GUIMain.class" afterPath="$PROJECT_DIR$/out/production/Paint/GUIMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/MathHelper.class" afterPath="$PROJECT_DIR$/out/production/Paint/MathHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/SettingsHelper.class" afterPath="$PROJECT_DIR$/out/production/Paint/SettingsHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/Test.class" afterPath="$PROJECT_DIR$/out/production/Paint/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iPolygons.class" afterPath="$PROJECT_DIR$/out/production/Paint/iPolygons.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iRectangle.class" afterPath="$PROJECT_DIR$/out/production/Paint/iRectangle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iSquare.class" afterPath="$PROJECT_DIR$/out/production/Paint/iSquare.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DrawApplication.java" afterPath="$PROJECT_DIR$/src/DrawApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EditWindow.java" afterPath="$PROJECT_DIR$/src/EditWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EllipticalShapes.java" afterPath="$PROJECT_DIR$/src/EllipticalShapes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUIHelpers.java" afterPath="$PROJECT_DIR$/src/GUIHelpers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DragEventHandler.java" afterPath="$PROJECT_DIR$/src/DragEventHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUIMain.java" afterPath="$PROJECT_DIR$/src/GUIMain.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HistoryHandler.java" afterPath="$PROJECT_DIR$/src/HistoryHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MathHelper.java" afterPath="$PROJECT_DIR$/src/MathHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SettingsHelper.java" afterPath="$PROJECT_DIR$/src/SettingsHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="$PROJECT_DIR$/src/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iPolygons.java" afterPath="$PROJECT_DIR$/src/iPolygons.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iRectangle.java" afterPath="$PROJECT_DIR$/src/iRectangle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iSquare.java" afterPath="$PROJECT_DIR$/src/iSquare.java" />
     </list>
     <ignored path="Paint.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,32 +28,12 @@
     <splitter split-orientation="horizontal" split-proportion="0.47655067">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GUIMain.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/GUIMain.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-42">
-                  <caret line="314" column="28" selection-start-line="314" selection-start-column="28" selection-end-line="314" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="CopyHandler.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/CopyHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
+                <state relative-caret-position="-1449">
                   <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                    <element signature="e#3182#3183#0" expanded="false" />
-                    <element signature="e#3216#3217#0" expanded="false" />
-                    <element signature="e#3256#3257#0" expanded="false" />
-                    <element signature="e#3289#3290#0" expanded="false" />
-                    <element signature="e#4083#4084#0" expanded="false" />
-                    <element signature="e#4116#4117#0" expanded="false" />
-                    <element signature="e#4172#4173#0" expanded="false" />
-                    <element signature="e#4216#4217#0" expanded="false" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -88,10 +41,41 @@
           <file leaf-file-name="HistoryHandler.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/HistoryHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="151">
-                  <caret line="210" column="51" selection-start-line="210" selection-start-column="51" selection-end-line="210" selection-end-column="51" />
+                <state relative-caret-position="423">
+                  <caret line="338" column="12" selection-start-line="338" selection-start-column="12" selection-end-line="338" selection-end-column="12" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DragEventHandler.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/DragEventHandler.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="407">
+                  <caret line="131" column="50" selection-start-line="131" selection-start-column="50" selection-end-line="131" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#4309#4310#0" expanded="true" />
+                    <element signature="e#4348#4349#0" expanded="true" />
+                    <element signature="e#4412#4413#0" expanded="true" />
+                    <element signature="e#4468#4469#0" expanded="true" />
+                    <element signature="e#4511#4512#0" expanded="true" />
+                    <element signature="e#4550#4551#0" expanded="true" />
+                    <element signature="e#4614#4615#0" expanded="true" />
+                    <element signature="e#4670#4671#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ShapeLink.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ShapeLink.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#515#516#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -101,31 +85,12 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Memento.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Memento.java">
+          <file leaf-file-name="GUIMain.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/GUIMain.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="800">
-                  <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
-                  <folding>
-                    <element signature="e#1078#1079#0" expanded="false" />
-                    <element signature="e#1116#1117#0" expanded="false" />
-                    <element signature="e#1158#1159#0" expanded="false" />
-                    <element signature="e#1190#1191#0" expanded="false" />
-                    <element signature="e#1231#1232#0" expanded="false" />
-                    <element signature="e#1263#1264#0" expanded="false" />
-                    <element signature="e#1308#1309#0" expanded="false" />
-                    <element signature="e#1340#1341#0" expanded="false" />
-                    <element signature="e#1488#1489#0" expanded="false" />
-                    <element signature="e#1542#1543#0" expanded="false" />
-                    <element signature="e#1570#1571#0" expanded="false" />
-                    <element signature="e#1597#1598#0" expanded="false" />
-                    <element signature="e#1634#1635#0" expanded="false" />
-                    <element signature="e#1666#1667#0" expanded="false" />
-                    <element signature="e#1703#1704#0" expanded="false" />
-                    <element signature="e#1734#1735#0" expanded="false" />
-                    <element signature="e#1784#1785#0" expanded="false" />
-                    <element signature="e#1824#1825#0" expanded="false" />
-                  </folding>
+                <state relative-caret-position="295">
+                  <caret line="352" column="72" selection-start-line="352" selection-start-column="72" selection-end-line="352" selection-end-column="72" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -166,41 +131,21 @@
           <file leaf-file-name="SettingsHelper.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/SettingsHelper.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="615">
-                  <caret line="267" column="18" selection-start-line="267" selection-start-column="18" selection-end-line="267" selection-end-column="18" />
+                <state relative-caret-position="55">
+                  <caret line="232" column="33" selection-start-line="232" selection-start-column="33" selection-end-line="232" selection-end-column="33" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DragEventHandler.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/DragEventHandler.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="256">
-                  <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EditWindow.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/EditWindow.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-826">
-                  <caret line="119" column="34" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="EditWindow.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../../Backups/Paint2/Paint/src/EditWindow.java">
+            <entry file="file://$PROJECT_DIR$/src/EditWindow.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="213" column="21" selection-start-line="213" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="262">
+                  <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -312,11 +257,11 @@
         <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/Memento.java" />
         <option value="$PROJECT_DIR$/src/MementoLinkedList.java" />
-        <option value="$PROJECT_DIR$/src/DragEventHandler.java" />
         <option value="$PROJECT_DIR$/src/SettingsHelper.java" />
         <option value="$PROJECT_DIR$/src/DrawApplication.java" />
-        <option value="$PROJECT_DIR$/src/GUIMain.java" />
         <option value="$PROJECT_DIR$/src/EditWindow.java" />
+        <option value="$PROJECT_DIR$/src/GUIMain.java" />
+        <option value="$PROJECT_DIR$/src/DragEventHandler.java" />
         <option value="$PROJECT_DIR$/src/HistoryHandler.java" />
       </list>
     </option>
@@ -659,7 +604,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -670,7 +615,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.50292826" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28968903" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28641573" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.49707174" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -726,18 +671,24 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/HistoryHandler.java</url>
-          <line>140</line>
+          <line>144</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/HistoryHandler.java</url>
-          <line>226</line>
+          <url>file://$PROJECT_DIR$/src/DragEventHandler.java</url>
+          <line>130</line>
           <properties />
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/HistoryHandler.java</url>
+          <line>304</line>
+          <properties />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -851,13 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShapeLink.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -943,24 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CopyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3182#3183#0" expanded="false" />
-            <element signature="e#3216#3217#0" expanded="false" />
-            <element signature="e#3256#3257#0" expanded="false" />
-            <element signature="e#3289#3290#0" expanded="false" />
-            <element signature="e#4083#4084#0" expanded="false" />
-            <element signature="e#4116#4117#0" expanded="false" />
-            <element signature="e#4172#4173#0" expanded="false" />
-            <element signature="e#4216#4217#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MathHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -999,33 +925,6 @@
             <marker date="1463071549751" expanded="false" signature="1076:1082" placeholder=" }" />
             <marker date="1463071549751" expanded="false" signature="1114:1125" placeholder=" { " />
             <marker date="1463071549751" expanded="false" signature="1140:1146" placeholder=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Memento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
-          <folding>
-            <element signature="e#1078#1079#0" expanded="false" />
-            <element signature="e#1116#1117#0" expanded="false" />
-            <element signature="e#1158#1159#0" expanded="false" />
-            <element signature="e#1190#1191#0" expanded="false" />
-            <element signature="e#1231#1232#0" expanded="false" />
-            <element signature="e#1263#1264#0" expanded="false" />
-            <element signature="e#1308#1309#0" expanded="false" />
-            <element signature="e#1340#1341#0" expanded="false" />
-            <element signature="e#1488#1489#0" expanded="false" />
-            <element signature="e#1542#1543#0" expanded="false" />
-            <element signature="e#1570#1571#0" expanded="false" />
-            <element signature="e#1597#1598#0" expanded="false" />
-            <element signature="e#1634#1635#0" expanded="false" />
-            <element signature="e#1666#1667#0" expanded="false" />
-            <element signature="e#1703#1704#0" expanded="false" />
-            <element signature="e#1734#1735#0" expanded="false" />
-            <element signature="e#1784#1785#0" expanded="false" />
-            <element signature="e#1824#1825#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1112,22 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SettingsHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="267" column="18" selection-start-line="267" selection-start-column="18" selection-end-line="267" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DragEventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DrawApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1138,26 +1021,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EditWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-826">
-          <caret line="119" column="34" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
+        <state relative-caret-position="262">
+          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SettingsHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="232" column="33" selection-start-line="232" selection-start-column="33" selection-end-line="232" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Memento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1385#1386#0" expanded="false" />
+            <element signature="e#1423#1424#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShapeLink.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#515#516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="314" column="28" selection-start-line="314" selection-start-column="28" selection-end-line="314" selection-end-column="28" />
+        <state relative-caret-position="295">
+          <caret line="352" column="72" selection-start-line="352" selection-start-column="72" selection-end-line="352" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DragEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="131" column="50" selection-start-line="131" selection-start-column="50" selection-end-line="131" selection-end-column="50" />
+          <folding>
+            <element signature="e#4309#4310#0" expanded="true" />
+            <element signature="e#4348#4349#0" expanded="true" />
+            <element signature="e#4412#4413#0" expanded="true" />
+            <element signature="e#4468#4469#0" expanded="true" />
+            <element signature="e#4511#4512#0" expanded="true" />
+            <element signature="e#4550#4551#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CopyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1449">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HistoryHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="210" column="51" selection-start-line="210" selection-start-column="51" selection-end-line="210" selection-end-column="51" />
+        <state relative-caret-position="423">
+          <caret line="338" column="12" selection-start-line="338" selection-start-column="12" selection-end-line="338" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

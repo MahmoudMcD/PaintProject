@@ -117,6 +117,8 @@ public class HistoryHandler {
             case 2:
                 applyChanges(1, action);
                 break;
+            case 3:
+                applyMovement(1, action);
         }
     }
 
@@ -133,6 +135,8 @@ public class HistoryHandler {
             case 2:
                 applyChanges(2, action);
                 break;
+            case 3:
+                applyMovement(2, action);
         }
     }
 
@@ -294,5 +298,45 @@ public class HistoryHandler {
         }
 
         return oldValues;
+    }
+
+    private void applyMovement(int start, Memento action)
+    {
+        Shape shape = (Shape) action.getActionShapeLink().getShapeFX();
+        iShape ishape = action.getActionShapeLink().getShape();
+        String[] info = action.getMoreInfo();
+
+        if (info.length != 5)
+            throw new RuntimeException("Invalid No. of Values");
+
+        switch (info[0].toLowerCase())
+        {
+            case "circle":
+
+                ((Circle) shape).setCenterX(Double.valueOf(info[start]));
+                ((Circle) shape).setCenterY(Double.valueOf(info[start + 2]));
+                ((iCircle) ishape).setCenter(new Double[]{
+                        Double.valueOf(info[start]),
+                        Double.valueOf(info[start + 2])
+                });
+                break;
+            case "ellipse":
+
+                ((Ellipse) shape).setCenterX(Double.valueOf(info[start]));
+                ((Ellipse) shape).setCenterY(Double.valueOf(info[start + 2]));
+                ((iEllipse) ishape).setCenter(new Double[]{
+                        Double.valueOf(info[start]),
+                        Double.valueOf(info[start + 2])
+                });
+                break;
+
+            case "square":
+            case "rectangle":
+                ((Rectangle) shape).setX(Double.valueOf(info[start]));
+                ((Rectangle) shape).setY(Double.valueOf(info[start + 2]));
+                //TODO
+                break;
+
+        }
     }
 }

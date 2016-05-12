@@ -13,6 +13,7 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
     iShape ishape;
     String type;
     GUIHelpers guiHelpers;
+    private String initialPositionX, initialPositionY;
 
     public DragEventHandler(String type, Shape shape, iShape ishape, GUIHelpers guiHelpers)
     {
@@ -106,4 +107,30 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
         }
         e.consume();
     }
+
+
+    public String getInitialPositionX() {
+        return initialPositionX;
+    }
+
+    public void setInitialPositionX(String initialPositionX) {
+        this.initialPositionX = initialPositionX;
+    }
+
+    public String getInitialPositionY() {
+        return initialPositionY;
+    }
+
+    public void setInitialPositionY(String initialPositionY) {
+        this.initialPositionY = initialPositionY;
+    }
+
+    public void registerMovement(String finalPositionX, String finalPositionY,
+                                 HistoryHandler historyHandler, ShapeLink shapeLink)
+    {
+        historyHandler.addMemento("A "+type+" was changed", shapeLink, 3,shapeLink.getType(), initialPositionX, finalPositionX,
+                initialPositionY, finalPositionY);
+    }
+
+
 }
