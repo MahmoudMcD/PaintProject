@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de268b3b-ebd0-47da-988e-20c6b8b5670c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paint/FreeHand.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paint/Test$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paint/images/sketch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/sketch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FreeHand.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Paint/Test$DragListener.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/DrawApplication.class" afterPath="$PROJECT_DIR$/out/production/Paint/DrawApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/EditWindow.class" afterPath="$PROJECT_DIR$/out/production/Paint/EditWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/EllipticalShapes.class" afterPath="$PROJECT_DIR$/out/production/Paint/EllipticalShapes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/GUIHelpers.class" afterPath="$PROJECT_DIR$/out/production/Paint/GUIHelpers.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/GUIMain.class" afterPath="$PROJECT_DIR$/out/production/Paint/GUIMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/MathHelper.class" afterPath="$PROJECT_DIR$/out/production/Paint/MathHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/ScrollHandle.class" afterPath="$PROJECT_DIR$/out/production/Paint/ScrollHandle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/SettingsHelper.class" afterPath="$PROJECT_DIR$/out/production/Paint/SettingsHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/Test.class" afterPath="$PROJECT_DIR$/out/production/Paint/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iPolygons.class" afterPath="$PROJECT_DIR$/out/production/Paint/iPolygons.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iRectangle.class" afterPath="$PROJECT_DIR$/out/production/Paint/iRectangle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/iSquare.class" afterPath="$PROJECT_DIR$/out/production/Paint/iSquare.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DrawApplication.java" afterPath="$PROJECT_DIR$/src/DrawApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EditWindow.java" afterPath="$PROJECT_DIR$/src/EditWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EllipticalShapes.java" afterPath="$PROJECT_DIR$/src/EllipticalShapes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUIHelpers.java" afterPath="$PROJECT_DIR$/src/GUIHelpers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUIMain.java" afterPath="$PROJECT_DIR$/src/GUIMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MathHelper.java" afterPath="$PROJECT_DIR$/src/MathHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SettingsHelper.java" afterPath="$PROJECT_DIR$/src/SettingsHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="$PROJECT_DIR$/src/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iPolygons.java" afterPath="$PROJECT_DIR$/src/iPolygons.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iRectangle.java" afterPath="$PROJECT_DIR$/src/iRectangle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/iSquare.java" afterPath="$PROJECT_DIR$/src/iSquare.java" />
     </list>
     <ignored path="Paint.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,8 +41,8 @@
       <file leaf-file-name="GUIMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUIMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-100.833336">
-              <caret line="167" column="30" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="30" />
+            <state vertical-scroll-proportion="-108.166664">
+              <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
+              <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
               <folding>
                 <element signature="e#425#426#0" expanded="true" />
                 <element signature="e#453#454#0" expanded="true" />
@@ -104,8 +76,8 @@
       <file leaf-file-name="FreeHand.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FreeHand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3084112">
-              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.43691587">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,15 +101,10 @@
         <entry file="file://$PROJECT_DIR$/src/DrawApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="155" column="59" selection-start-line="155" selection-start-column="59" selection-end-line="155" selection-end-column="59" />
+              <caret line="148" column="59" selection-start-line="148" selection-start-column="59" selection-end-line="148" selection-end-column="59" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="method#getInstance#0;class#DrawApplication#0" expanded="false" />
-                <element signature="method#removeShape#0;class#DrawApplication#0" expanded="false" />
-                <element signature="method#moveShape#0;class#DrawApplication#0" expanded="false" />
-                <element signature="method#getShapeLink#0;class#DrawApplication#0" expanded="false" />
-                <element signature="method#getShapeLink#1;class#DrawApplication#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -766,7 +733,7 @@
       <updated>1462821901145</updated>
       <workItem from="1462821907367" duration="19833000" />
       <workItem from="1462906724878" duration="15916000" />
-      <workItem from="1463004495891" duration="16970000" />
+      <workItem from="1463004495891" duration="17164000" />
     </task>
     <task id="LOCAL-00001" summary="ScrollHandler,Resize almost done">
       <created>1462843030067</created>
@@ -786,11 +753,17 @@
       <option name="project" value="LOCAL" />
       <updated>1462908108699</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="resize done,free hand done, mouse fixed,window fixed">
+      <created>1463021775375</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1463021775375</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61230000" />
+    <option name="totallyTimeSpent" value="61424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -837,7 +810,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ScrollHandler,Resize almost done" />
     <MESSAGE value="ScrollHandler,Resize almost done&quot;fixed&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="ScrollHandler,Resize almost done&quot;fixed&quot;" />
+    <MESSAGE value="resize done,free hand done, mouse fixed,window fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="resize done,free hand done, mouse fixed,window fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1086,6 +1060,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,6 +1088,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46261683">
           <caret line="24" column="113" selection-start-line="24" selection-start-column="113" selection-end-line="24" selection-end-column="113" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,6 +1122,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33411214">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,15 +1199,10 @@
     <entry file="file://$PROJECT_DIR$/src/DrawApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="155" column="59" selection-start-line="155" selection-start-column="59" selection-end-line="155" selection-end-column="59" />
+          <caret line="148" column="59" selection-start-line="148" selection-start-column="59" selection-end-line="148" selection-end-column="59" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#getInstance#0;class#DrawApplication#0" expanded="false" />
-            <element signature="method#removeShape#0;class#DrawApplication#0" expanded="false" />
-            <element signature="method#moveShape#0;class#DrawApplication#0" expanded="false" />
-            <element signature="method#getShapeLink#0;class#DrawApplication#0" expanded="false" />
-            <element signature="method#getShapeLink#1;class#DrawApplication#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1249,7 +1221,7 @@
     <entry file="file://$PROJECT_DIR$/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
           <folding>
             <element signature="e#425#426#0" expanded="true" />
             <element signature="e#453#454#0" expanded="true" />
@@ -1267,8 +1239,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-100.833336">
-          <caret line="167" column="30" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="30" />
+        <state vertical-scroll-proportion="-108.166664">
+          <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1277,8 +1249,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FreeHand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3084112">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.43691587">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
