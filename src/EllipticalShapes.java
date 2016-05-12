@@ -23,6 +23,8 @@ public class EllipticalShapes extends iShape {
     public void resizeShape(double... newInfo) {
         xRadius = newInfo[0];
         yRadius = newInfo[1];
+        if(newInfo.length == 3)
+            this.setRotationAngle(newInfo[2]);
     }
 
     @Override

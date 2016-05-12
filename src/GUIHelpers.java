@@ -24,7 +24,7 @@ public class GUIHelpers {
 
     // elements for the shape menu
     private HBox shapesMenu;
-    private ImageView circleIcon, ellipseIcon, squareIcon, rectangleIcon, triangleIcon, polygonIcon, lineIcon;
+    private ImageView circleIcon, ellipseIcon, squareIcon, rectangleIcon, triangleIcon, polygonIcon, lineIcon,sketchIcon;
 
     // Elements for the setting box main layout
     private HBox settingsLayout;
@@ -114,11 +114,14 @@ public class GUIHelpers {
             setSettings(7, 2);
         });
 
+        sketchIcon = new ImageView(new Image("images/sketch.png",30,30,true,true));
+
+        sketchIcon.setOnMouseClicked(e->{
+            setSettings(8);
+        });
+
         shapesMenu.getChildren().addAll(circleIcon, ellipseIcon, squareIcon, rectangleIcon,
-                triangleIcon, polygonIcon, lineIcon);
-
-
-
+                triangleIcon, polygonIcon, lineIcon,sketchIcon);
 
     }
 

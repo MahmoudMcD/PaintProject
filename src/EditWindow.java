@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.*;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -54,20 +55,23 @@ public class EditWindow{
             settings = settingsHelper.getSettingsLayout(2);
             ((TextField) settings[1]).setText(String.valueOf(((Ellipse) shape).getRadiusX()));
             ((TextField) settings[3]).setText(String.valueOf(((Ellipse) shape).getRadiusY()));
-            ((TextField) settings[5]).setText(((Ellipse) shape).getFill().toString());
+            ((TextField) settings[5]).setText(String.valueOf(((Rotate) shape.getTransforms().get(0)).getAngle()));
+            ((TextField) settings[7]).setText(((Ellipse) shape).getFill().toString());
         }
 
         else if(shape instanceof Rectangle){
             if(((Rectangle) shape).getWidth() == ((Rectangle) shape).getHeight()) {
                 settings = settingsHelper.getSettingsLayout(4);
                 ((TextField) settings[1]).setText(String.valueOf(((Rectangle) shape).getWidth()));
-                ((TextField) settings[3]).setText(((Rectangle) shape).getFill().toString());
+                ((TextField) settings[3]).setText(String.valueOf(((Rotate) shape.getTransforms().get(0)).getAngle()));
+                ((TextField) settings[5]).setText(((Rectangle) shape).getFill().toString());
             }
             else {
                 settings = settingsHelper.getSettingsLayout(3);
                 ((TextField) settings[1]).setText(String.valueOf(((Rectangle) shape).getWidth()));
                 ((TextField) settings[3]).setText(String.valueOf(((Rectangle) shape).getHeight()));
-                ((TextField) settings[5]).setText(((Rectangle) shape).getFill().toString());
+                ((TextField) settings[5]).setText(String.valueOf(((Rotate) shape.getTransforms().get(0)).getAngle()));
+                ((TextField) settings[7]).setText(((Rectangle) shape).getFill().toString());
             }
         }
 
@@ -78,9 +82,10 @@ public class EditWindow{
             }
             else {
                 settings = settingsHelper.getSettingsLayout(6);
-                ((TextField) settings[0]).setText(String.valueOf(((Polygon) shape).getPoints().toArray().length));
+                ((TextField) settings[0]).setText(String.valueOf(((Polygon) shape).getPoints().toArray().length/2));
                 ((TextField) settings[2]).setText(String.valueOf(MathHelper.calculateSideLength(((Polygon) shape).getPoints())));
-                ((TextField) settings[4]).setText(((Polygon) shape).getFill().toString());
+                ((TextField) settings[4]).setText(String.valueOf(((Rotate) shape.getTransforms().get(0)).getAngle()));
+                ((TextField) settings[6]).setText(((Polygon) shape).getFill().toString());
             }
         }
         else if(shape instanceof Line) {
@@ -153,10 +158,19 @@ public class EditWindow{
 
                 double centerX =MathHelper.centerFromVertices(((Polygon) shape).getPoints())[0];
                 double centerY =MathHelper.centerFromVertices(((Polygon) shape).getPoints())[1];
-                vertices = MathHelper.calculatePolygonVertices(centerX,centerY,sideLength,No);
+                Double[] ard ;
+                ard = MathHelper.calculatePolygonVertices(centerX,centerY,sideLength,No);
+
+                vertices = new Double[2*No+1];
+
+                //System.out.println(ard.length);
+                //System.out.println(2*No+1);
+
+                System.arraycopy(ard,0,vertices,0,ard.length);
+
+                vertices[vertices.length-1] = Double.valueOf(polyString[2]);
             }
         }
-
         else if(shape instanceof Line) {
             String[] ar1 = settingsHelper.getSettings(7);
             ar = new String[2];
@@ -166,27 +180,25 @@ public class EditWindow{
         }
         else
             throw new RuntimeException(" Shape Not Found ! ");
+
         if(flagPoly == 0) {
             double[] values = new double[ar.length - 1];
-            for (int i = 0; i < ar.length - 1; i++) {
+            for (int i = 0; i < ar.length - 1; i++)
                 values[i] = Double.valueOf(ar[i]);
 
-            }
             drawApplication.resizeShape(shape, values);
-            System.out.println(ar[ar.length - 1]);
             ((Shape) shapeLink.getShapeFX()).setFill(Paint.valueOf(ar[ar.length - 1]));
             shapeLink.getShape().setFillColor(Color.valueOf(ar[ar.length - 1]));
-            shapeLink.getShape().getFillColor();
         }
         else {
             flagPoly =0;
-            double[] verticesdouble = new double[vertices.length];
-            for(int i=0;i<vertices.length;i++){
-                verticesdouble[i] = vertices[i];
+            double[] verticesDouble = new double[vertices.length];
+            for(int i=0;i<verticesDouble.length;i++){
+                verticesDouble[i] = vertices[i];
             }
-            drawApplication.resizeShape(shape,verticesdouble);
-            ((Shape) shapeLink.getShapeFX()).setFill(Paint.valueOf(polyString[2]));
-            shapeLink.getShape().setFillColor(Color.valueOf(polyString[2]));
+            drawApplication.resizeShape(shape,verticesDouble);
+            ((Shape) shapeLink.getShapeFX()).setFill(Paint.valueOf(polyString[3]));
+            shapeLink.getShape().setFillColor(Color.valueOf(polyString[3]));
         }
     }
 
