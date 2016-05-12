@@ -20,14 +20,29 @@ public class iPolygons extends iShape {
     //TODO Fix this -> howa ana 3adltha bs check tany w law s7 8yar b2a almove bnafs alconcept
     @Override
     public void resizeShape(double... newInfo) {
-        if (newInfo.length != noOfSides*2)
-            throw new RuntimeException("Wrong Coordinates number "); //TODO
+        if (newInfo.length < noOfSides*2)
+             throw new RuntimeException("Wrong Coordinates number "); //TODO
+        //in case of sending the last element in the array as a rotation angle copy the coords into a new array.
+        if(newInfo.length %2 != 0){
+            double[] coords = new double[newInfo.length-1];
+            System.arraycopy(newInfo,0,coords,0,newInfo.length-2);
+            this.setRotationAngle(newInfo[newInfo.length-1]);
 
-        for(int i = 0; i < noOfSides; i+=2)
-        {
-            xCoord[i/2] = newInfo[i];
-            yCoord[i/2] = newInfo[i+1];
+            System.out.println(this.getRotationAngle());
+            for(int i = 0; i < noOfSides; i+=2)
+            {
+                xCoord[i/2] = coords[i];
+                yCoord[i/2] = coords[i+1];
+            }
         }
+        else{
+            for(int i = 0; i < noOfSides; i+=2)
+            {
+                xCoord[i/2] = newInfo[i];
+                yCoord[i/2] = newInfo[i+1];
+            }
+        }
+
         this.sideLength = MathHelper.calculateSideLength(xCoord,yCoord);
     }
 

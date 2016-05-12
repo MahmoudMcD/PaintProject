@@ -1,5 +1,7 @@
 import javafx.collections.ObservableList;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 
@@ -51,6 +53,9 @@ public class MathHelper {
         }
         return new double[]{sumX/(vertices.size()/2),sumY/(vertices.size()/2)};
     }
+    public static double[] centerOfRectangle(Rectangle shape) {
+        return new double[]{shape.getX()+(shape.getWidth()/2),shape.getY()+(shape.getHeight()/2)};
+    }
 
     public static double calculateSideLength(ObservableList<Double> vertices){
         return Math.sqrt(Math.pow(vertices.get(2)-vertices.get(0),2)+Math.pow(vertices.get(3)-vertices.get(1),2));
@@ -63,5 +68,6 @@ public class MathHelper {
     public static double calculateSideLength(double[] xCoord,double[] yCoord){
         return Math.sqrt(Math.pow(xCoord[1]-xCoord[0],2)+Math.pow(yCoord[1]-yCoord[0],2));
     }
+
 
 }

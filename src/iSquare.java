@@ -16,6 +16,8 @@ public class iSquare extends iPolygons {
     public void resizeShape(double... newInfo)
     {
         sideLength = newInfo[0];
+        if(newInfo.length ==2)
+            this.setRotationAngle(newInfo[1]);
     }
 
     public double getSideLength() {

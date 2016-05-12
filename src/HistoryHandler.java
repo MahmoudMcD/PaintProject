@@ -1,9 +1,11 @@
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.*;
+import javafx.scene.transform.Rotate;
 import org.w3c.dom.css.Rect;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.DoubleAccumulator;
 
 /**
  * Created by mahmoud on 5/9/2016.
@@ -150,31 +152,41 @@ public class HistoryHandler {
                 ishape.setFillColor(Color.valueOf(info[start + 2]));
                 break;
             case "ellipse":
-                if (info.length != 7)
+                if (info.length != 9)
                     throw new RuntimeException("Invalid No. of values");
                 ((Ellipse) shape).setRadiusX(Double.valueOf(info[start]));
                 ((Ellipse) shape).setRadiusY(Double.valueOf(info[start + 2]));
-                shape.setFill(Paint.valueOf(info[start + 4]));
+                shape.setRotate(Double.valueOf(info[start + 4]));
+                shape.setFill(Paint.valueOf(info[start + 6]));
+
                 ishape.resizeShape(Double.valueOf(info[start]), Double.valueOf(info[start + 2]));
-                ishape.setFillColor(Color.valueOf(info[start + 4]));
+                ishape.setRotationAngle(Double.valueOf(info[start + 4]));
+                ishape.setFillColor(Color.valueOf(info[start + 6]));
                 break;
             case "rectangle":
-                if (info.length != 7)
+                if (info.length != 9)
                     throw new RuntimeException("Invalid No. of values");
                 ((Rectangle) shape).setWidth(Double.valueOf(info[start]));
                 ((Rectangle) shape).setHeight(Double.valueOf(info[start+2]));
-                shape.setFill(Paint.valueOf(info[start + 4]));
+                shape.setRotate(Double.valueOf(info[start + 4]));
+                shape.setFill(Paint.valueOf(info[start + 6]));
+
                 ishape.resizeShape(Double.valueOf(info[start]), Double.valueOf(info[start+2]));
-                ishape.setFillColor(Color.valueOf(info[start + 4]));
+                ishape.setRotationAngle(Double.valueOf(info[start + 4]));
+                ishape.setFillColor(Color.valueOf(info[start + 2]));
                 break;
             case "square":
-                if (info.length != 5)
+                if (info.length != 7)
                     throw new RuntimeException("Invalid No. of values");
                 ((Rectangle) shape).setHeight(Double.valueOf(info[start]));
                 ((Rectangle) shape).setWidth(Double.valueOf(info[start]));
-                shape.setFill(Paint.valueOf(info[start + 2]));
+
+                shape.setRotate(Double.valueOf(info[start + 2]));
+                shape.setFill(Paint.valueOf(info[start + 4]));
+
                 ishape.resizeShape(Double.valueOf(info[start]), Double.valueOf(info[start]));
-                ishape.setFillColor(Color.valueOf(info[start + 2]));
+                ishape.setRotationAngle(Double.valueOf(info[start + 2]));
+                ishape.setFillColor(Color.valueOf(info[start + 4]));
                 break;
             case "triangle":
                 if (info.length != 3)
@@ -189,6 +201,23 @@ public class HistoryHandler {
                 shape.setFill(Paint.valueOf(info[start + 2]));
                 ishape.resizeShape(Double.valueOf(info[start]));
                 ishape.setFillColor(Color.valueOf(info[start + 2]));
+                break;
+            case "polygon":
+                if (info.length != 9)
+                    throw new RuntimeException("InValid No. of values");
+                double point1X = ((Polygon) shape).getPoints().get(0);
+                double point1Y = ((Polygon) shape).getPoints().get(1);
+                double noSidesDouble = Double.parseDouble(info[start]);
+                int noOfSide = (int) noSidesDouble;
+                ((Polygon) shape).getPoints()
+                        .addAll(MathHelper.calculatePolygonVertices(point1X, point1Y,
+                                Double.valueOf(info[start + 2]), noOfSide));
+                shape.setRotate(Double.valueOf(info[start + 4]));
+                shape.setFill(Paint.valueOf(info[start + 6]));
+
+                ((iPolygons) ishape).setSideLength(Double.valueOf(info[start + 2]));
+                ishape.setRotationAngle(Double.valueOf(info[start + 4]));
+                ishape.setFillColor(Color.valueOf(info[start + 6]));
                 break;
         }
     }
@@ -210,32 +239,58 @@ public class HistoryHandler {
             case "ellipse":
                 double ellipseXRadius = ((Ellipse) shape).getRadiusX();
                 double ellipseYRadius = ((Ellipse) shape).getRadiusY();
+                double ellipseRotationAngle = shape.getRotate();
                 Paint ellipseColor = shape.getFill();
+
                 oldValues[0] = String.valueOf(ellipseXRadius);
                 oldValues[1] = String.valueOf(ellipseYRadius);
-                oldValues[2] = String.valueOf(ellipseColor);
+                oldValues[2] = String.valueOf(ellipseRotationAngle);
+                oldValues[3] = String.valueOf(ellipseColor);
                 break;
             case "square":
                 double squareSideLength = ((Rectangle) shape).getWidth();
+                double squareRotationAngle = shape.getRotate();
                 Paint squareColor = shape.getFill();
                 oldValues[0] = String.valueOf(squareSideLength);
-                oldValues[1] = String.valueOf(squareColor);
+                oldValues[1] = String.valueOf(squareRotationAngle);
+                oldValues[2] = String.valueOf(squareColor);
                 break;
             case "rectangle":
                 double rectangleWidth = ((Rectangle) shape).getWidth();
                 double rectangleHeight = ((Rectangle) shape).getHeight();
+                double rectangleRotationAngle = shape.getRotate();
                 Paint rectangleColor = shape.getFill();
                 oldValues[0] = String.valueOf(rectangleWidth);
                 oldValues[1] = String.valueOf(rectangleHeight);
-                oldValues[2] = String.valueOf(rectangleColor);
+                oldValues[2] = String.valueOf(rectangleRotationAngle);
+                oldValues[3] = String.valueOf(rectangleColor);
                 break;
             case "triangle":
                 Paint triangleColor = shape.getFill();
                 oldValues[0] = String.valueOf(triangleColor);
                 break;
             case "polygon":
-               // TODO;
+                double polyNoOfSides = ((Polygon) shape).getPoints().size();
+                double point1X, point2X, point1Y, point2Y;
+                point1X = ((Polygon) shape).getPoints().get(0);
+                point1Y = ((Polygon) shape).getPoints().get(1);
+                point2X = ((Polygon) shape).getPoints().get(2);
+                point2Y = ((Polygon) shape).getPoints().get(3);
+                double sideLength = Math.sqrt(Math.pow((point2X - point1X), 2) +
+                    Math.pow((point2Y - point1Y), 2));
+                double rotationAngle = shape.getRotate();
+                Paint polyColor = shape.getFill();
+                oldValues[0] = String.valueOf(polyNoOfSides);
+                oldValues[1] = String.valueOf(sideLength);
+                oldValues[2] = String.valueOf(rotationAngle);
+                oldValues[3] = String.valueOf(polyColor);
+
                 break;
+            case "line":
+                double lineStrokeWidth = ((Line) shape).getStrokeWidth();
+                Paint lineColor = shape.getFill();
+                oldValues[0] = String.valueOf(lineStrokeWidth);
+                oldValues[1] = String.valueOf(lineColor);
         }
 
         return oldValues;

@@ -15,6 +15,8 @@ public class iRectangle extends iPolygons {
     {
         width = newInfo[0];
         height = newInfo[1];
+        if(newInfo.length == 3)
+            this.setRotationAngle(newInfo[2]);
     }
 
     public double getWidth() {
