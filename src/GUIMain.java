@@ -5,9 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -42,6 +40,9 @@ public class GUIMain extends Application{
     Pane shapesRoot;
     GUIHelpers guiHelpers;
     Rectangle clip;
+
+    Menu viewMenuItem;
+    CheckMenuItem historyMenuItem;
 
     DrawApplication drawApplication;
 
@@ -92,6 +93,19 @@ public class GUIMain extends Application{
 
         // Setting the menu bar
         menuBar = guiHelpers.getMenuBar();
+        viewMenuItem = new Menu("View");
+        historyMenuItem = new CheckMenuItem("History");
+        historyMenuItem.setSelected(true);
+        historyMenuItem.setOnAction(e -> {
+
+            if (historyMenuItem.isSelected())
+                drawApplication.getHistoryWindow().showHistoryWindow();
+            else
+                drawApplication.getHistoryWindow().closeHistoryWindow();
+
+        });
+        viewMenuItem.getItems().add(historyMenuItem);
+        menuBar.getMenus().addAll(viewMenuItem);
 
         // setting the shape menu
         shapesMenu = guiHelpers.getShapesMenu();

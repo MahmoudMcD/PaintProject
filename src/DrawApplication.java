@@ -344,6 +344,11 @@ public class DrawApplication {
         historyWindow.showHistoryWindow();
     }
 
+    public void closeHistoryWindow()
+    {
+        historyWindow.closeHistoryWindow();
+    }
+
     public HistoryWindow getHistoryWindow()
     {
         return historyWindow;

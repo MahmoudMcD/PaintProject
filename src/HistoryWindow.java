@@ -85,4 +85,9 @@ public class HistoryWindow {
         historyHandler.returnUntil(selected);
         refreshHistoryTableView();
     }
+
+    public void closeHistoryWindow()
+    {
+        window.close();
+    }
 }
