@@ -1,11 +1,10 @@
+import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.*;
-import javafx.scene.transform.Rotate;
-import org.w3c.dom.css.Rect;
+
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.DoubleAccumulator;
 
 /**
  * Created by mahmoud on 5/9/2016.
@@ -40,6 +39,7 @@ public class HistoryHandler {
         current = mementos.addMemento(message, actionShapeLink,  type,
                 moreInfo);
         System.out.println(current.getMoreInfo().toString());
+        drawApplication.getHistoryWindow().refreshHistoryTableView();
     }
 
 
@@ -80,6 +80,7 @@ public class HistoryHandler {
             undoAction(next);
             System.out.println("---------");
             mementos.printList();
+            drawApplication.getHistoryWindow().refreshHistoryTableView();
         }
 
     }
@@ -100,6 +101,7 @@ public class HistoryHandler {
             redoAction(current);
             System.out.println(" - . - . - .");
             mementos.printList();
+            drawApplication.getHistoryWindow().refreshHistoryTableView();
         }
     }
 
@@ -177,7 +179,7 @@ public class HistoryHandler {
 
                 ishape.resizeShape(Double.valueOf(info[start]), Double.valueOf(info[start+2]));
                 ishape.setRotationAngle(Double.valueOf(info[start + 4]));
-                ishape.setFillColor(Color.valueOf(info[start + 2]));
+                ishape.setFillColor(Color.valueOf(info[start + 6]));
                 break;
             case "square":
                 if (info.length != 7)
@@ -337,6 +339,81 @@ public class HistoryHandler {
                 //TODO
                 break;
 
+            case "line":
+                double xDiff, yDiff;
+                if (start == 1)
+                {
+                    xDiff = Double.valueOf(info[1]) - Double.valueOf(info[2]);
+                    yDiff = Double.valueOf(info[3]) - Double.valueOf(info[4]);
+                }
+                else
+                {
+                    xDiff = Double.valueOf(info[2]) - Double.valueOf(info[1]);
+                    yDiff = Double.valueOf(info[4]) - Double.valueOf(info[3]);
+                }
+
+                Line tempLine = (Line) action.getActionShapeLink().getShapeFX();
+                tempLine.setStartX(tempLine.getStartX() + xDiff);
+                tempLine.setEndX(tempLine.getEndX() + xDiff);
+                tempLine.setStartY(tempLine.getStartY() + yDiff);
+                tempLine.setEndY(tempLine.getEndY() + yDiff);
+
+                iLine tempILine = (iLine) action.getActionShapeLink().getShape();
+                tempILine.setxStart(tempILine.getxStart() + xDiff);
+                tempILine.setxEnd(tempILine.getxEnd() + xDiff);
+                tempILine.setyStart(tempILine.getyStart() + yDiff);
+                tempILine.setyEnd(tempILine.getyEnd() + yDiff);
+                break;
+
+            case "polygon":
+                double sideLength = ((iPolygons) ishape).getSideLength();
+                double[] center = MathHelper.centerFromVertices(((Polygon) shape).getPoints());
+
+                double yDiffPolygon, xDiffPolygon;
+
+                if (start == 1)
+                {
+                    xDiffPolygon = Double.valueOf(info[1]) - Double.valueOf(info[2]);
+                    yDiffPolygon = Double.valueOf(info[3]) - Double.valueOf(info[4]);
+                }
+                else
+                {
+                    xDiffPolygon = Double.valueOf(info[2]) - Double.valueOf(info[1]);
+                    yDiffPolygon = Double.valueOf(info[4]) - Double.valueOf(info[3]);
+                }
+
+
+                center[0] += xDiffPolygon;
+                center[1] += yDiffPolygon;
+
+                int noOfSides = ((Polygon) shape).getPoints().size() / 2;
+                ((Polygon) shape).getPoints().clear();
+                ((Polygon) shape).getPoints().addAll(MathHelper.calculatePolygonVertices(center[0], center[1],
+                        sideLength, noOfSides));
+
+                //TODO
+
+                break;
         }
     }
+
+    public ObservableList<Memento> returnObservableList()
+    {
+        return mementos.returnObservableList();
+    }
+
+    public Memento getCurrent()
+    {
+        return  current;
+    }
+
+    public void returnUntil(Memento toBeCurrent)
+    {
+        while (next != mementos.getSentinel())
+            redo();
+
+        while (current != toBeCurrent)
+            undo();
+    }
+
 }

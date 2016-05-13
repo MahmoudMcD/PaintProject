@@ -23,7 +23,10 @@ public class DrawApplication {
     int status;
     ArrayList<ShapeLink> shapes = new ArrayList<>();
     Pane root = new Pane();
+
+    // setting up the Histroy Handler and the history Window
     HistoryHandler historyHandler = new HistoryHandler(this);
+    HistoryWindow historyWindow = new HistoryWindow(historyHandler);
 
     public static DrawApplication  getInstance(){
         if(instance == null){
@@ -87,7 +90,16 @@ public class DrawApplication {
                 //double rotationAngle = ((Rotate) shape.getTransforms().get(0)).getAngle();
                 sl.setShape(shapeFactory.makeShape("polygon", xCoord, yCoord,rotationAngle));
                 ((iPolygons) sl.getShape()).setNoOfSides(length/2);
-                double sideLength = MathHelper.calculateSideLength(((Polygon) sl.getShapeFX()).getPoints());
+
+                double xPoint1 = ((Polygon) shape).getPoints().get(0);
+                double yPoint1 = ((Polygon) shape).getPoints().get(1);
+                double xPoint2 = ((Polygon) shape).getPoints().get(2);
+                double yPoint2 = ((Polygon) shape).getPoints().get(3);
+
+                double sideLength = Math.sqrt((Math.pow(xPoint2 - xPoint1,2)) +
+                        (Math.pow(yPoint2 - yPoint1,2)));
+
+                //double sideLength = MathHelper.calculateSideLength(((Polygon) sl.getShapeFX()).getPoints());
                 ((iPolygons) sl.getShape()).setSideLength(sideLength);
             }
         }
@@ -326,4 +338,14 @@ public class DrawApplication {
     }
 
     public HistoryHandler getHistoryHandler() {return historyHandler;}
+
+    public void showHistoryWindow()
+    {
+        historyWindow.showHistoryWindow();
+    }
+
+    public HistoryWindow getHistoryWindow()
+    {
+        return historyWindow;
+    }
 }

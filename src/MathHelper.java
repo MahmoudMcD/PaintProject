@@ -53,6 +53,7 @@ public class MathHelper {
         }
         return new double[]{sumX/(vertices.size()/2),sumY/(vertices.size()/2)};
     }
+
     public static double[] centerOfRectangle(Rectangle shape) {
         return new double[]{shape.getX()+(shape.getWidth()/2),shape.getY()+(shape.getHeight()/2)};
     }

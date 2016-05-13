@@ -300,9 +300,13 @@ public class GUIMain extends Application{
                     copyHandler.setMouseEvent(e);
                     pasteMenuItem.setDisable(false);
                 }
+
             }
             e.consume();
         });
+
+        // showing the history window
+        drawApplication.showHistoryWindow();
 
         // Setting the scene
         menusOuterLayout = new VBox();
@@ -327,6 +331,7 @@ public class GUIMain extends Application{
             // if the user right-clicked the shape show the context menu
             if (e.getButton() == MouseButton.SECONDARY)
                 getContextMenu().show(shape, e.getX(), e.getY());
+
         });
 
         ShapeLink shapeLink = drawApplication.searchFor(shape);
@@ -337,17 +342,20 @@ public class GUIMain extends Application{
                 shape, shapeLink.getShape(), guiHelpers);
 
         shape.setOnMousePressed(e -> {
+
             System.out.println("In");
-            newDragEventHandler.setInitialPositionX(String.valueOf(e.getX()));
-            newDragEventHandler.setInitialPositionY(String.valueOf(e.getY()));
+            newDragEventHandler.setInitialPosition(shape);
+            newDragEventHandler.setInitialClickPositionX(e.getX());
+            newDragEventHandler.setInitialClickPositionY(e.getY());
+            //newDragEventHandler.setInitialPositionX(String.valueOf(e.getX()));
+            //newDragEventHandler.setInitialPositionY(String.valueOf(e.getY()));
             e.consume();
         });
 
         shape.setOnMouseDragged(newDragEventHandler);
 
         shape.setOnMouseReleased(e -> {
-            if (!String.valueOf(e.getX()).equals(newDragEventHandler.getInitialPositionX()) ||
-                    !String.valueOf(e.getY()).equals(newDragEventHandler.getInitialPositionY()))
+            if (e.getX() != newDragEventHandler.getInitialClickPositionX() || e.getY() != newDragEventHandler.getInitialClickPositionY())
             {
                 System.out.println("Out");
                 newDragEventHandler.registerMovement(String.valueOf(e.getX()), String.valueOf(e.getY()),

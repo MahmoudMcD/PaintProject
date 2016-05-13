@@ -1,3 +1,5 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.shape.Shape;
 
 import java.util.Date;
@@ -72,4 +74,16 @@ public class MementoLinkedList {
     }
 
     public Memento getSentinel() {return sentinel;}
+
+    public ObservableList<Memento> returnObservableList()
+    {
+        ObservableList<Memento> list = FXCollections.observableArrayList();
+        Memento temp = sentinel.getNext();
+        while (temp != sentinel)
+        {
+            list.add(temp);
+            temp = temp.getNext();
+        }
+        return list;
+    }
 }

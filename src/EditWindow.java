@@ -129,7 +129,7 @@ public class EditWindow{
         window.initModality(Modality.APPLICATION_MODAL);
 
         window.setScene(scene);
-        window.showAndWait();
+        window.show();
     }
 
     public void resize(){

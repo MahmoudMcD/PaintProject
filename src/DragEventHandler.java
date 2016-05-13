@@ -14,6 +14,7 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
     String type;
     GUIHelpers guiHelpers;
     private String initialPositionX, initialPositionY;
+    private double initialClickPositionX, initialClickPositionY;
 
     public DragEventHandler(String type, Shape shape, iShape ishape, GUIHelpers guiHelpers)
     {
@@ -96,7 +97,7 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
                 ((Line) shape).setEndX(xEnd + xDiffLine);
                 ((Line) shape).setEndY(yEnd + yDiffLine);
                 break;
-            case "regularPolygon":
+            case "polygon":
                 iPolygons tempRPoly = (iPolygons) ishape;
                 ((Polygon) shape).getPoints().clear();
                 Double[] newPoints = MathHelper.calculatePolygonVertices(e.getX(), e.getY(),
@@ -132,5 +133,63 @@ public class DragEventHandler implements EventHandler<MouseEvent>{
                 initialPositionY, finalPositionY);
     }
 
+    public void setInitialPosition(Shape shape)
+    {
+        if (shape instanceof Rectangle)
+        {
+            Rectangle tempRect = ((Rectangle) shape);
+            setInitialPositionX(String.valueOf(tempRect.getX()));
+            setInitialPositionY(String.valueOf(tempRect.getY()));
+            return;
+        }
 
+        if (shape instanceof Circle)
+        {
+            Circle tempCircle = ((Circle) shape);
+            setInitialPositionX(String.valueOf(tempCircle.getCenterX()));
+            setInitialPositionY(String.valueOf(tempCircle.getCenterY()));
+            return;
+        }
+
+        if (shape instanceof Ellipse)
+        {
+            Ellipse tempEllipse = ((Ellipse) shape);
+            setInitialPositionX(String.valueOf(tempEllipse.getCenterX()));
+            setInitialPositionY(String.valueOf(tempEllipse.getCenterY()));
+            return;
+        }
+
+        if (shape instanceof Polygon)
+        {
+            Polygon tempPoly = ((Polygon) shape);
+            setInitialPositionX(String.valueOf(tempPoly.getPoints().get(0)));
+            setInitialPositionY(String.valueOf(tempPoly.getPoints().get(1)));
+            return;
+        }
+
+        if (shape instanceof Line)
+        {
+            Line tempLine = ((Line) shape);
+            setInitialPositionX(String.valueOf(tempLine.getStartX()));
+            setInitialPositionY(String.valueOf(tempLine.getStartY()));
+            return;
+        }
+
+    }
+
+    public double getInitialClickPositionX() {
+        return initialClickPositionX;
+    }
+
+    public void setInitialClickPositionX(double initialClickPositionX) {
+        this.initialClickPositionX = initialClickPositionX;
+    }
+
+    public double getInitialClickPositionY() {
+        return initialClickPositionY;
+    }
+
+    public void setInitialClickPositionY(double initialClickPositionY) {
+        this.initialClickPositionY = initialClickPositionY;
+    }
 }
